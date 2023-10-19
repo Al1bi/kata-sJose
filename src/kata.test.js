@@ -15,4 +15,15 @@ describe(" Katas Individuales ", () => {
     expect(catologo.obtenerListaTitulos()).toEqual(["Joselito"]);
   });
 
+  it("Deberia obtener una lista de titulos de katas de varias katas", () => {
+    
+    let catologo = new Catologo(); 
+    catologo.agregarKata(new Kata("Joselito")); 
+    catologo.agregarKata(new Kata("Borisaurio")); 
+    catologo.agregarKata(new Kata("Maquinolas")); 
+
+    expect(catologo.obtenerListaTitulos()).toEqual(["Joselito", "Borisaurio", "Maquinolas"]);
+  });
+
+
 });
