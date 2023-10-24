@@ -11,12 +11,11 @@ export default class Catologo {
 
   obtenerListaTitulos() {
     let titulos = [];
-    
     for(let indiceKata = 0; indiceKata < this.katas.length ; indiceKata++){
-      titulos.push( this.katas[indiceKata].obtenerTitulo() );
+      titulos.push(this.katas[indiceKata].obtenerTitulo());
     }
     
     return titulos; 
   }
-
+  
 }

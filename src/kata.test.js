@@ -1,7 +1,7 @@
 import Kata from "./Kata.js";
 import Catologo from "./Catalogo.js";
 
-describe(" Katas Individuales ", () => {
+describe("Katas Individuales ", () => {
   it("Deberia obtener el titulo de una kata", () => {
     let kata = new Kata("Jose"); 
     expect(kata.obtenerTitulo()).toEqual("Jose");
@@ -25,5 +25,8 @@ describe(" Katas Individuales ", () => {
     expect(catologo.obtenerListaTitulos()).toEqual(["Joselito", "Borisaurio", "Maquinolas"]);
   });
 
-
+  it("Deberia obtener una descripcion de kata", () => {
+    let kata = new Kata("Jose", "Kata dijsktra"); 
+    expect(kata.obtenerDescripcion()).toEqual("Kata dijsktra");
+  });
 });
