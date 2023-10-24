@@ -1,15 +1,28 @@
-<html>
-  <body>
-    <h1>Sumador</h1>
-    <form id="sumar-form">
-      <label for="primer-numero">Primer número:</label>
-      <input type="number" id="primer-numero" />
-      <label for="segundo-numero">Segundo número:</label>
-      <input type="number" id="segundo-numero" />
-      <input type="submit" value="Sumar" id="sumar-button" />
-    </form>
-    <div id="resultado-div"></div>
-
-    <script type="module" src="./src/presenter.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <nav>
+    <div id="kata_title">
+      <h1>Josekatalog</h1>
+    </div>
+  </nav>
+  <main>
+    <div id="show_div">
+      <div id="request_form">
+        <form id="request">
+          <input type="submit" value="Mostrar catalogo" id="enviar_button"/>
+        </form>
+      </div>
+      <div id="show_result"></div>
+    </div>
+  </main>
+  <script type="module" src="src/presenter.js"></script>
+</body>
 </html>
+
+

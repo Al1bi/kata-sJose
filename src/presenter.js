@@ -1,15 +1,23 @@
-import sumar from "./sumador";
+import Catologo from "./Catalogo.js";
+import Kata from "./Kata.js";
 
-const first = document.querySelector("#primer-numero");
-const second = document.querySelector("#segundo-numero");
-const form = document.querySelector("#sumar-form");
-const div = document.querySelector("#resultado-div");
+const form = document.querySelector("#request");
+const div = document.querySelector("#show_result");
+
+let catologo = new Catologo(); 
+catologo.agregarKata(new Kata("Joselito")); 
+catologo.agregarKata(new Kata("Borisaurio")); 
+catologo.agregarKata(new Kata("Maquinolas"));
+catologo.agregarKata(new Kata("Icepecitos"));
+catologo.agregarKata(new Kata("M&M's"));
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
-
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
+  div.innerHTML = "";
+  let titulos = catologo.obtenerListaTitulos();
+  for(let i = 0; i < titulos.length; i++)
+  {
+    console.log("<div>" + titulos[i] + "</div>");
+    div.innerHTML += "<div>" + i + ", " + titulos[i] + "</div>";
+  }
 });
