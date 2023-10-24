@@ -1,7 +1,7 @@
 export default class Kata{
   constructor(titulo, descripcion){
-    this.titulo = titulo;
     this.descripcion = descripcion;
+    this.titulo = titulo;
   }
   obtenerTitulo(){
     return this.titulo;

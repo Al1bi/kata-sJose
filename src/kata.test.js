@@ -11,7 +11,6 @@ describe("Katas Individuales ", () => {
     
     let catologo = new Catologo(); 
     catologo.agregarKata(new Kata("Joselito")); 
-
     expect(catologo.obtenerListaTitulos()).toEqual(["Joselito"]);
   });
 
@@ -28,5 +27,11 @@ describe("Katas Individuales ", () => {
   it("Deberia obtener una descripcion de kata", () => {
     let kata = new Kata("Jose", "Kata dijsktra"); 
     expect(kata.obtenerDescripcion()).toEqual("Kata dijsktra");
+  });
+
+  it("Deberia obtener una lista con el titulo e informacion adicional de la kata ", () => {
+    let catologo = new Catologo(); 
+    catologo.agregarKata(new Kata("Joselito", "Tener cuidado al desarrollar esta kata")); 
+    expect(catologo.obtenerListaKatas()).toEqual([{"descripcion": "Tener cuidado al desarrollar esta kata","titulo": "Joselito"}]);
   });
 });
