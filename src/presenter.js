@@ -15,9 +15,8 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   div.innerHTML = "";
   let titulos = catologo.obtenerListaTitulos();
-  for(let i = 0; i < titulos.length; i++)
+  for(let kataIndexTitulo in titulos)
   {
-    console.log("<div>" + titulos[i] + "</div>");
-    div.innerHTML += "<div>" + i + ", " + titulos[i] + "</div>";
+    div.innerHTML += "<div>" + titulos[kataIndexTitulo] + "</div>";
   }
 });
