@@ -14,9 +14,9 @@ catologo.agregarKata(new Kata("M&M's"));
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   div.innerHTML = "";
-  let titulos = catologo.obtenerListaTitulos();
-  for(let kataIndexTitulo in titulos)
+  let katas = catologo.obtenerListaKatas();
+  for(let kataIndex in katas)
   {
-    div.innerHTML += "<div>" + titulos[kataIndexTitulo] + "</div>";
+    div.innerHTML += "<div>" + katas[kataIndex].obtenerTitulo() +  ", " + katas[kataIndex].obtenerDescripcion() + "</div>";
   }
 });
