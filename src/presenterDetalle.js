@@ -2,6 +2,7 @@ import Catologo from "./Catalogo.js";
 import Kata from "./Kata.js";
 
 const titulo_detalle_div = document.querySelector("#titulo_detalle_div");
+const descripcion_detalle_div = document.querySelector("#descripcion_detalle_div");
 
 let params = new URLSearchParams(window.location.search);
 let indexKata = params.get('indexKata');
@@ -17,3 +18,4 @@ catologo.agregarKata(new Kata("M&M's"));
 let katas = catologo.obtenerListaKatas();
 
 titulo_detalle_div.innerHTML += katas[indexKata].obtenerTitulo();
+descripcion_detalle_div.innerHTML += katas[indexKata].obtenerDescripcion();
