@@ -22,4 +22,8 @@ export default class Kata{
   obtenerEstado() {
     return this.estadoTerminado; 
   }
+
+  cambiarEstado() {
+    return true; 
+  }
 };
