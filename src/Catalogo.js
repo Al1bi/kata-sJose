@@ -51,9 +51,21 @@ export default class Catologo {
         listaKatasTerminadas.push(this.katas[indiceKata]);
       }
     }
-    
 
     return listaKatasTerminadas;
+  }
+
+  obtenerKatasNoTerminadas(){
+
+    let listaKatasNoTerminadas = []
+
+    for(let indiceKata = 0; indiceKata < this.katas.length ; indiceKata++){
+      if( !this.estaTerminado(this.katas[indiceKata])){
+        listaKatasNoTerminadas.push(this.katas[indiceKata]);
+      }
+    }
+
+    return listaKatasNoTerminadas;
   }
 
   obtenerListaEstados(){

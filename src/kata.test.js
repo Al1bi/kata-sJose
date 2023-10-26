@@ -174,13 +174,22 @@ describe("Katas Individuales ", () => {
     expect(Catalogo.obtenerKatasTerminadas()).toEqual([{"titulo":"Jose", "descripcion":"Katita", "dificultad":4, "estado":"terminado"}]);
   });
 
-  it("Deberia devolver una lista con una kata para obtener katas terminadas", () => {
+  it("Deberia devolver una lista con una katas para obtener katas terminadas", () => {
     let Catalogo = new Catologo();
     Catalogo.agregarKata(new Kata("Jose", "Katita", 4, "terminado"));
     Catalogo.agregarKata(new Kata("Alejando", "Katita", 4, "no terminado"));
     Catalogo.agregarKata(new Kata("Jose", "Katita", 4, "terminado"));
 
     expect(Catalogo.obtenerKatasTerminadas()).toEqual([ new Kata("Jose", "Katita", 4, "terminado"), new Kata("Jose", "Katita", 4, "terminado")]);
+  });
+
+  it("Deberia devolver una lista con katas no terminadas para obtener katas no terminadas", () => {
+    let Catalogo = new Catologo();
+    Catalogo.agregarKata(new Kata("Jose", "Katita", 4, "terminado"));
+    Catalogo.agregarKata(new Kata("Alejando", "Katita", 4, "no terminado"));
+    Catalogo.agregarKata(new Kata("Jose", "Katita", 4, "terminado"));
+
+    expect(Catalogo.obtenerKatasNoTerminadas()).toEqual([ new Kata("Alejando", "Katita", 4, "no terminado")]);
   });
 
 });
