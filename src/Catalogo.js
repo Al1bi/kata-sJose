@@ -20,6 +20,9 @@ export default class Catologo {
   }
 
   buscarTitulo(terminoBusqueda) { 
-    return ["Joselito"]; 
+    let listaFiltrada = this.obtenerListaTitulos().filter(item => 
+      item.includes(terminoBusqueda)
+    ); 
+    return listaFiltrada
   }
 }
