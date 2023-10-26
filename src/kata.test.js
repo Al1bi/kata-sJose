@@ -131,5 +131,14 @@ describe("Katas Individuales ", () => {
     expect(catologo.obtenerListaTitulosOrdenadaAsc()).toEqual(["Denilson"]);
   });
   
+  it("Deberia obtener una lista de titulos de katas de varias katas ordenadas ascendentemente", () => {
+    
+    let catologo = new Catologo(); 
+    catologo.agregarKata(new Kata("Joselito")); 
+    catologo.agregarKata(new Kata("Borisaurio")); 
+    catologo.agregarKata(new Kata("Maquinolas")); 
+
+    expect(catologo.obtenerListaTitulosOrdenadaAsc()).toEqual([ "Borisaurio", "Joselito", "Maquinolas"]);
+  });
 });
 

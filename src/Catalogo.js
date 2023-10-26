@@ -19,8 +19,25 @@ export default class Catologo {
     return this.katas;
   }
 
+  ordenarPorTituloAsc(){
+    this.katas.sort(function (a, b) {
+      if (a.obtenerTitulo() > b.obtenerTitulo()) {
+        return 1;
+      }
+      if (a.obtenerTitulo() < b.obtenerTitulo()) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
   obtenerListaTitulosOrdenadaAsc(){
-    return [this.katas[0].obtenerTitulo()];
+    this.ordenarPorTituloAsc();
+    let titulos = [];
+    for(let indiceKata = 0; indiceKata < this.katas.length ; indiceKata++){
+      titulos.push(this.katas[indiceKata].obtenerTitulo());
+    }
+    return titulos;
   }
 
   buscarTitulo(terminoBusqueda) { 
