@@ -38,6 +38,10 @@ export default class Catologo {
     return this.obtenerListaTitulos();
   }
 
+  obtenerListaEstados(){
+    return [this.katas[0].obtenerEstado()];
+  }
+
   buscarTitulo(terminoBusqueda) { 
     terminoBusqueda = terminoBusqueda.toLowerCase()
     let listaFiltrada = this.obtenerListaTitulos().filter(item => 

@@ -146,5 +146,11 @@ describe("Katas Individuales ", () => {
     expect(kata.obtenerEstado()).toEqual("terminado");
   });
 
+  it("Deberia devolver una lista de una kata con estado terminado", () => {
+    let Catalogo = new Catologo();
+    Catalogo.agregarKata(new Kata("Jose", "Katita", 4, "terminado"));
+    expect(Catalogo.obtenerListaEstados()).toEqual(["terminado"]);
+  });
+
 });
 
