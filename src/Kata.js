@@ -15,4 +15,7 @@ export default class Kata{
   {
     return this.dificultad;
   }
+  obtenerEstado() {
+    return false;
+  }
 };
