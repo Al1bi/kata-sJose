@@ -140,5 +140,12 @@ describe("Katas Individuales ", () => {
 
     expect(catologo.obtenerListaTitulosOrdenadaAsc()).toEqual([ "Borisaurio", "Joselito", "Maquinolas"]);
   });
+
+  it("Deberia obtener el estado no terminado de una kata", () => {
+    
+    let kata = new Kata("Kata 3", "Katita", 3, "no terminado"); 
+    expect(kata.obtenerEstado()).toEqual("no terminado");
+  });
+
 });
 
