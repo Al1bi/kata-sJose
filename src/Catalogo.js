@@ -19,21 +19,13 @@ export default class Catologo {
     return this.katas;
   }
 
-  ordenarPorTituloAsc(){
-    this.katas.sort(function (a, b) {
-      if (a.obtenerTitulo() > b.obtenerTitulo()) {
-        return 1;
-      }
-      if (a.obtenerTitulo() < b.obtenerTitulo()) {
-        return -1;
-      }
-      return 0;
-    });
+  ordenarPorUnAtributo(comparador){
+    this.katas.sort(comparador);
   }
 
   obtenerListaTitulosOrdenadaAsc(){
-    this.ordenarPorTituloAsc();
-
+    let comparadorNombre = (a, b) => a.obtenerTitulo().localeCompare(b.obtenerTitulo());
+    this.ordenarPorUnAtributo(comparadorNombre);
     return this.obtenerListaTitulos();
   }
 
