@@ -15,10 +15,17 @@ export default class Catologo {
     }
     return titulos; 
   }
+  ordenarKatasPorUnAtributo(comparador){
+    this.katas.sort(comparador);
+  }
+
+  ordenarKatasPorTituloAsc(){
+    let comparadorNombre = (a, b) => a.obtenerTitulo().localeCompare(b.obtenerTitulo());
+    this.ordenarKatasPorUnAtributo(comparadorNombre);
+  }
 
   obtenerListaKatasOrdTituloAsc(){
-    let comparadorNombre = (a, b) => a.obtenerTitulo().localeCompare(b.obtenerTitulo());
-    this.ordenarPorUnAtributo(comparadorNombre);
+    this.ordenarKatasPorTituloAsc();
     return this.katas;
   }
 
@@ -26,13 +33,8 @@ export default class Catologo {
     return this.katas;
   }
 
-  ordenarPorUnAtributo(comparador){
-    this.katas.sort(comparador);
-  }
-
   obtenerListaTitulosOrdenadaAsc(){
-    let comparadorNombre = (a, b) => a.obtenerTitulo().localeCompare(b.obtenerTitulo());
-    this.ordenarPorUnAtributo(comparadorNombre);
+    this.ordenarKatasPorTituloAsc();
     return this.obtenerListaTitulos();
   }
 
