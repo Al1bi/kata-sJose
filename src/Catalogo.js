@@ -38,13 +38,17 @@ export default class Catologo {
     return this.obtenerListaTitulos();
   }
 
+  estaTerminado(kataIndividual){
+    return kataIndividual.obtenerEstado() == "terminado"; 
+  }
+
   obtenerKatasTerminadas(){
 
     let listaKatasTerminadas = []
 
-    for(let i = 0; i < this.katas.length ; i++){
-      if(this.katas[i].obtenerEstado() == "terminado"){
-        listaKatasTerminadas.push(this.katas[0]);
+    for(let indiceKata = 0; indiceKata < this.katas.length ; indiceKata++){
+      if(this.estaTerminado(this.katas[indiceKata])){
+        listaKatasTerminadas.push(this.katas[indiceKata]);
       }
     }
     
