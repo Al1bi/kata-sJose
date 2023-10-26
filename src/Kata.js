@@ -3,7 +3,9 @@ export default class Kata{
     this.descripcion = descripcion;
     this.titulo = titulo;
     this.dificultad = dificultad;
-    this.estado = estado;
+    if(estado != null) this.estado = estado;
+    else this.estado = "no terminado";
+
   }
   obtenerTitulo(){
     return this.titulo;

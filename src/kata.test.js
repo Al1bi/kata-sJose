@@ -32,7 +32,7 @@ describe("Katas Individuales ", () => {
   it("Deberia obtener una lista con el titulo e informacion adicional de la kata ", () => {
     let catologo = new Catologo(); 
     catologo.agregarKata(new Kata("Joselito", "Tener cuidado al desarrollar esta kata")); 
-    expect(catologo.obtenerListaKatas()).toEqual([{"descripcion": "Tener cuidado al desarrollar esta kata","titulo": "Joselito"}]);
+    expect(catologo.obtenerListaKatas()).toEqual([{"descripcion": "Tener cuidado al desarrollar esta kata","dificultad":undefined, "estado":"no terminado", "titulo": "Joselito"}]);
   });
 
   it("Deberia devolver una lista de los titulos de las katas que empiecen por J", () => {
@@ -177,6 +177,10 @@ describe("Katas Individuales ", () => {
 
     expect(catalogo1.buscarKataPorEstado("terminado")).toEqual(catalogo.obtenerListaKatas());
   });
+  it("Deberia retornar el estado por default una kata como no terminado", () => {    
+    let kata = new Kata("Kata 3", "Katita", 3); 
+    expect(kata.obtenerEstado()).toEqual("no terminado");
+  });  
   
 
 });
