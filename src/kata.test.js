@@ -163,4 +163,14 @@ describe("Katas Individuales ", () => {
     expect(catologo.buscarKatasTerminadas()).toEqual([new Kata("Borisaurio", "Descrip", 2, true)]);
   });
 
-});
+  it("Deberia devolver una lista de varias katas que estan terminadas", () => {
+    let catologo = new Catologo(); 
+    catologo.agregarKata(new Kata("KataBasic", "Esta es la kata basica para el test", 1, false)); 
+    catologo.agregarKata(new Kata("Borisaurio", "Descrip", 2, true)); 
+    catologo.agregarKata(new Kata("katalan numbers", "katalan numbers la serie", 3, true)); 
+
+    expect(catologo.buscarKatasTerminadas()).toEqual([new Kata("Borisaurio", "Descrip", 2, true), 
+                                                      new Kata("katalan numbers", "katalan numbers la serie", 3, true)]);
+  });
+
+});             

@@ -67,7 +67,13 @@ export default class Catologo {
   }
   
   buscarKatasTerminadas() {
-    return [new Kata("Borisaurio", "Descrip", 2, true)];
+    let katasTerminadas = []; 
+      this.obtenerListaKatas().forEach((item) => {
+        if(item.obtenerEstado() === true) {
+          katasTerminadas.push(item);
+        }
+      })
+    return katasTerminadas;
   }
 
   buscarKataPorDificultad(dificultad) { 
