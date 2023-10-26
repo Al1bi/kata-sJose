@@ -75,9 +75,9 @@ export default class Catologo {
     return coincidencias;
   }
 
-  buscarKataPorEstado() { 
+  buscarKataPorEstado(estado) { 
     let coincidencias = []; 
-      if (this.katas[0].obtenerEstado() == "no terminado") {
+      if (this.katas[0].obtenerEstado() == estado) {
         coincidencias.push(this.katas[0]);
       }
       return coincidencias
