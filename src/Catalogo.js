@@ -42,8 +42,8 @@ export default class Catologo {
 
     let estados = [];
 
-    for(let i = 0; i < this.katas.length ; i++){
-      estados.push(this.katas[i].obtenerEstado());
+    for(let indiceKata = 0; indiceKata < this.katas.length ; indiceKata++){
+      estados.push(this.katas[indiceKata].obtenerEstado());
     }
 
     return estados;
