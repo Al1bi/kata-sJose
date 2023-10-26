@@ -1,3 +1,4 @@
+import Kata from "./Kata";
 
 export default class Catologo {
 
@@ -25,5 +26,10 @@ export default class Catologo {
       item.toLowerCase().includes(terminoBusqueda)
     ); 
     return listaFiltrada
+  }
+  
+  buscarKata(terminoBusqueda) { 
+    let searchedKata = new Kata("Borisaurio", "Descrip")
+    return [searchedKata];
   }
 }
