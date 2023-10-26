@@ -1,5 +1,5 @@
-import Kata from "./Kata.js";
 import Catologo from "./Catalogo.js";
+import Kata from "./Kata.js";
 
 describe("Katas Individuales ", () => {
   it("Deberia obtener el titulo de una kata", () => {
@@ -124,6 +124,12 @@ describe("Katas Individuales ", () => {
     expect(catologo1.buscarKataPorDificultad(1)).toEqual(catologo.obtenerListaKatas());
   });
 
-
+  it("Deberia obtener una lista de titulos de katas de una sola ordenada ascendentemente", () => {
+    
+    let catologo = new Catologo(); 
+    catologo.agregarKata(new Kata("Denilson")); 
+    expect(catologo.obtenerListaTitulosOrdenadaAsc()).toEqual(["Denilson"]);
+  });
+  
 });
 

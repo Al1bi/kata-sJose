@@ -1,4 +1,3 @@
-import Kata from "./Kata.js";
 
 export default class Catologo {
 
@@ -18,6 +17,10 @@ export default class Catologo {
   }
   obtenerListaKatas(){
     return this.katas;
+  }
+
+  obtenerListaTitulosOrdenadaAsc(){
+    return [this.katas[0].obtenerTitulo()];
   }
 
   buscarTitulo(terminoBusqueda) { 
