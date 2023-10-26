@@ -2,6 +2,7 @@ import Catologo from "./Catalogo.js";
 import Kata from "./Kata.js";
 
 const form = document.querySelector("#request");
+const searchForm = document.querySelector("#search_form");
 const div = document.querySelector("#show_result");
 
 let botonMostrarCatalogo = document.querySelector("#enviar_button");
@@ -29,6 +30,24 @@ form.addEventListener("submit", (event) => {
 
   agregarEscuchadoresBotonesLeer();
 });
+
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault(); 
+  const terminoDeBusqueda = document.querySelector("#search_box").value; 
+  div.innerHTML = ""; 
+  let katas = catologo.buscarKata(terminoDeBusqueda);
+  for(let kataIndex in katas)
+  {
+    div.innerHTML +=
+    "<div>" +
+      katas[kataIndex].obtenerTitulo() +  ", " + katas[kataIndex].obtenerDescripcion() +"<p>" +
+      "<input type=\"submit\" value=\"Leer mas\" id=\"detalle_button"+kataIndex+"\"/>" +
+    "</div>";
+  
+  }
+  
+  agregarEscuchadoresBotonesLeer();
+}); 
 
 function agregarEscuchadoresBotonesLeer() {
   let buttons = document.querySelectorAll('[id^="detalle_button"]');
