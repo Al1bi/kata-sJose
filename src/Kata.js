@@ -22,5 +22,9 @@ export default class Kata{
   {
     return this.estado;
   }
+  modificarEstado(estado) 
+  {
+    this.estado = estado;
+  }
   
 };

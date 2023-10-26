@@ -180,8 +180,14 @@ describe("Katas Individuales ", () => {
   it("Deberia retornar el estado por default una kata como no terminado", () => {    
     let kata = new Kata("Kata 3", "Katita", 3); 
     expect(kata.obtenerEstado()).toEqual("no terminado");
-  });  
+  });
+  it("Deberia modificar ele stado de una kata de no terminado a terminado", () => {    
+    let kata = new Kata("Kata 3", "Katita", 3);
+    kata.modificarEstado("terminado"); 
+    expect(kata.obtenerEstado()).toEqual("terminado");
+  });
   
+
 
 });
 
