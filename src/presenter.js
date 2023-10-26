@@ -36,8 +36,8 @@ form.addEventListener("submit", (event) => {
 
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault(); 
-  const terminoDeBusqueda = document.querySelector("#search_box").value; 
   div.innerHTML = ""; 
+  const terminoDeBusqueda = document.querySelector("#search_box").value; 
   let katas = catologo.buscarKata(terminoDeBusqueda);
   for(let kataIndex in katas)
   {
@@ -46,9 +46,7 @@ searchForm.addEventListener("submit", (event) => {
       katas[kataIndex].obtenerTitulo() +  ", " + katas[kataIndex].obtenerDescripcion() +"<p>" +
       "<input type=\"submit\" value=\"Leer mas\" id=\"detalle_button"+kataIndex+"\"/>" +
     "</div>";
-  
   }
-  
   agregarEscuchadoresBotonesLeer();
 }); 
 

@@ -25,18 +25,26 @@ export default class Catologo {
     let listaFiltrada = this.obtenerListaTitulos().filter(item => 
       item.toLowerCase().includes(terminoBusqueda)
     ); 
-    return listaFiltrada
+    return listaFiltrada;
+  }
+   
+  terminoVacio(termino) {
+    if(termino === "") 
+      return true; 
+    else 
+      return false; 
   }
   
   buscarKata(terminoBusqueda) { 
-    let katasBuscadas = []; 
+    let katasFiltradas = []; 
     terminoBusqueda = terminoBusqueda.toLowerCase();
     this.obtenerListaTitulos().forEach((item, index) => {
       if (item.toLowerCase().includes(terminoBusqueda)) {
-        katasBuscadas.push(this.katas[index]);
+        katasFiltradas.push(this.katas[index]);
       }
     });
-    if(terminoBusqueda === "") katasBuscadas = this.obtenerListaKatas(); 
-    return katasBuscadas;
+    if(this.terminoVacio(terminoBusqueda)) 
+      katasFiltradas = this.obtenerListaKatas(); 
+    return katasFiltradas;
   }
 }
