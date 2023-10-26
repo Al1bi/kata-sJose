@@ -1,14 +1,8 @@
 import Catologo from "./Catalogo.js";
 import Kata from "./Kata.js";
 
-const form = document.querySelector("#request");
 const titulo_detalle_div = document.querySelector("#titulo_detalle_div");
 const descripcion_detalle_div = document.querySelector("#descripcion_detalle_div");
-const estado_div = document.querySelector("#estado");
-const searchForm = document.querySelector("#search_form");
-const div = document.querySelector("#show_result");
-
-
 
 let params = new URLSearchParams(window.location.search);
 let indexKata = params.get('indexKata');
@@ -44,61 +38,3 @@ let katas = catologo.obtenerListaKatas();
 descripcion_detalle_div.className = "see_more";
 titulo_detalle_div.innerHTML += katas[indexKata].obtenerTitulo();
 descripcion_detalle_div.innerHTML += katas[indexKata].obtenerDescripcion();
-estado_div.innerHTML += katas[indexKata].obtenerEstado();
-
-
-searchForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const nuevoEstado = document.querySelector("#search_box").value;
-    katas[indexKata].modificarEstado(nuevoEstado);
-
-    div.innerHTML = " ";
-    event.preventDefault();
-  
-    let table = document.createElement("table");
-    let thead = document.createElement("thead");
-    let tbody = document.createElement("tbody");
-  
-    let headerRow = document.createElement("tr");
-    ["Título", "Descripción", "Ver más", "Dificultad", "Estado"].forEach(headerText => {
-        let th = document.createElement("th");
-        th.textContent = headerText;
-        headerRow.appendChild(th);
-    });
-    thead.appendChild(headerRow);
-    table.appendChild(thead);
-  
-        let row = document.createElement("tr");
-  
-        let titleCell = document.createElement("td");
-        titleCell.textContent = katas[indexKata].obtenerTitulo();
-        row.appendChild(titleCell);
-  
-        let descriptionCell = document.createElement("td");
-        descriptionCell.textContent = katas[indexKata].obtenerDescripcion();
-        row.appendChild(descriptionCell);
-  
-        let inputCell = document.createElement("td");
-        let inputElement = document.createElement("input");
-        inputElement.type = "submit";
-        inputElement.className = "see_more";
-        inputElement.value = "Leer mas";
-        inputElement.id = "detalle_button" + indexKata;
-        inputCell.appendChild(inputElement);
-        row.appendChild(inputCell);
-        let difficultyCell = document.createElement("td");
-        difficultyCell.textContent = katas[indexKata].obtenerDificultad();
-        row.appendChild(difficultyCell);
-  
-        let stateCell = document.createElement("td");
-        stateCell.textContent = katas[indexKata].obtenerEstado();
-        row.appendChild(stateCell);
-
-  
-        tbody.appendChild(row);
-    
-    table.appendChild(tbody);
-  
-    div.appendChild(table);
-  });
-

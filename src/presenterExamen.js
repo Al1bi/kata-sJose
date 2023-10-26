@@ -41,7 +41,7 @@ form.addEventListener("submit", (event) => {
   let tbody = document.createElement("tbody");
 
   let headerRow = document.createElement("tr");
-  ["Título", "Descripción", "Ver más", "Dificultad", "Estado"].forEach(headerText => {
+  ["Título", "Descripción", "Ver más", "Dificultad", "Estado", "Editar"].forEach(headerText => {
       let th = document.createElement("th");
       th.textContent = headerText;
       headerRow.appendChild(th);
@@ -77,13 +77,23 @@ form.addEventListener("submit", (event) => {
       stateCell.textContent = katas[kataIndex].obtenerEstado();
       row.appendChild(stateCell);
 
+
+      let inputEditCell = document.createElement("td");
+      let inputEditElement = document.createElement("input");
+      inputEditElement.type = "submit";
+      inputEditElement.value = "Editar";
+      inputEditElement.id = "detalle_button" + kataIndex;
+      inputEditElement.className = "see_more";
+      inputEditCell.appendChild(inputEditElement);
+      row.appendChild(inputEditCell);
+
       tbody.appendChild(row);
   }
   table.appendChild(tbody);
 
   div.appendChild(table);
 
-  agregarEscuchadoresBotonesLeer();
+  agregarEscuchadoresBotonesEditar();
 });
 
 
@@ -94,7 +104,7 @@ searchForm.addEventListener("submit", (event) => {
   let thead = document.createElement("thead");
   let tbody = document.createElement("tbody");
   let headerRow = document.createElement("tr");
-  ["Título", "Descripción", "Acción", "Dificultad", "Estado"].forEach(headerText => {
+  ["Título", "Descripción", "Acción", "Dificultad", "Estado", "Editar"].forEach(headerText => {
       let th = document.createElement("th");
       th.textContent = headerText;
       headerRow.appendChild(th);
@@ -128,15 +138,39 @@ searchForm.addEventListener("submit", (event) => {
       stateCell.textContent = katas[kataIndex].obtenerEstado();
       row.appendChild(stateCell);
 
+
+
+      let inputEditCell = document.createElement("td");
+      let inputEditElement = document.createElement("input");
+      inputEditElement.type = "submit";
+      inputEditElement.value = "Editar";
+      inputEditElement.id = "detalle_button" + kataIndex;
+      inputEditElement.className = "see_more";
+      inputEditCell.appendChild(inputEditElement);
+      row.appendChild(inputEditCell);
       tbody.appendChild(row);
   }
   table.appendChild(tbody);
   div_results_search.appendChild(table);
-  agregarEscuchadoresBotonesLeer();
+  agregarEscuchadoresBotonesEditar()
 });
 
 
 function agregarEscuchadoresBotonesLeer() {
+  let buttons = document.querySelectorAll('[id^="detalle_button"]');
+  buttons.forEach(button => {
+    button.addEventListener('click', function() {
+
+      botonMostrarCatalogo.style.visibility = "hidden";
+
+      let index = this.id.replace('detalle_button', '');
+      
+      window.location.href = "./detalleKata.html?indexKata="+index;
+    });
+  });
+}
+
+function agregarEscuchadoresBotonesEditar() {
   let buttons = document.querySelectorAll('[id^="detalle_button"]');
   buttons.forEach(button => {
     button.addEventListener('click', function() {
