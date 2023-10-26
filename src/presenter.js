@@ -6,6 +6,7 @@ const searchForm = document.querySelector("#search_form");
 const div = document.querySelector("#show_result");
 const div_results_search = document.querySelector("#show_result_search");
 const formTerminado = document.querySelector("#request_terminado")
+const formNoTerminado = document.querySelector("#request_noterminado")
 
 let botonMostrarCatalogo = document.querySelector("#enviar_button");
 
@@ -43,7 +44,7 @@ form.addEventListener("submit", (event) => {
   let tbody = document.createElement("tbody");
 
   let headerRow = document.createElement("tr");
-  ["Título", "Descripción", "Estado" ,"Ver más", "Dificultad"].forEach(headerText => {
+  ["Título", "Descripción", "Estado" ,"Ver más", "Dificultad", "Cambiar Estado"].forEach(headerText => {
       let th = document.createElement("th");
       th.textContent = headerText;
       headerRow.appendChild(th);
@@ -75,10 +76,22 @@ form.addEventListener("submit", (event) => {
       inputElement.id = "detalle_button" + kataIndex;
       inputCell.appendChild(inputElement);
       row.appendChild(inputCell);
+
       let difficultyCell = document.createElement("td");
       difficultyCell.textContent = katas[kataIndex].obtenerDificultad();
       row.appendChild(difficultyCell);
+
+      let inputCellChange = document.createElement("td");
+      let inputElementChange = document.createElement("input");
+      inputElementChange.type = "submit";
+      inputElementChange.className = "see_more";
+      inputElementChange.value = "Cambiar estado";
+      inputElementChange.id = "cambiar_button" + kataIndex;
+      inputCellChange.appendChild(inputElementChange);
+      row.appendChild(inputCellChange);
+
       tbody.appendChild(row);
+
   }
   table.appendChild(tbody);
 
@@ -96,7 +109,7 @@ formTerminado.addEventListener("submit", (event) => {
   let tbody = document.createElement("tbody");
 
   let headerRow = document.createElement("tr");
-  ["Título", "Descripción", "Estado" ,"Ver más", "Dificultad"].forEach(headerText => {
+  ["Título", "Descripción", "Estado" ,"Ver más", "Dificultad", "Cambiar Estado"].forEach(headerText => {
       let th = document.createElement("th");
       th.textContent = headerText;
       headerRow.appendChild(th);
@@ -131,6 +144,79 @@ formTerminado.addEventListener("submit", (event) => {
       let difficultyCell = document.createElement("td");
       difficultyCell.textContent = katas[kataIndex].obtenerDificultad();
       row.appendChild(difficultyCell);
+
+      let inputCellChange = document.createElement("td");
+      let inputElementChange = document.createElement("input");
+      inputElementChange.type = "submit";
+      inputElementChange.className = "see_more";
+      inputElementChange.value = "Cambiar estado";
+      inputElementChange.id = "cambiar_button" + kataIndex;
+      inputCellChange.appendChild(inputElementChange);
+      row.appendChild(inputCellChange);
+
+      tbody.appendChild(row);
+  }
+  table.appendChild(tbody);
+
+  div.appendChild(table);
+
+  agregarEscuchadoresBotonesLeer();
+});
+
+formNoTerminado.addEventListener("submit", (event) => {
+  div.innerHTML = " ";
+  event.preventDefault();
+
+  let table = document.createElement("table");
+  let thead = document.createElement("thead");
+  let tbody = document.createElement("tbody");
+
+  let headerRow = document.createElement("tr");
+  ["Título", "Descripción", "Estado" ,"Ver más", "Dificultad", "Cambiar Estado"].forEach(headerText => {
+      let th = document.createElement("th");
+      th.textContent = headerText;
+      headerRow.appendChild(th);
+  });
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  let katas = catologo.obtenerKatasNoTerminadas();
+  for(let kataIndex in katas) {
+      let row = document.createElement("tr");
+
+      let titleCell = document.createElement("td");
+      titleCell.textContent = katas[kataIndex].obtenerTitulo();
+      row.appendChild(titleCell);
+
+      let descriptionCell = document.createElement("td");
+      descriptionCell.textContent = katas[kataIndex].obtenerDescripcion();
+      row.appendChild(descriptionCell);
+
+      let estadoCell = document.createElement("td");
+      estadoCell.textContent = katas[kataIndex].obtenerEstado();
+      row.appendChild(estadoCell);
+
+      let inputCell = document.createElement("td");
+      let inputElement = document.createElement("input");
+      inputElement.type = "submit";
+      inputElement.className = "see_more";
+      inputElement.value = "Leer mas";
+      inputElement.id = "detalle_button" + kataIndex;
+      inputCell.appendChild(inputElement);
+      row.appendChild(inputCell);
+      let difficultyCell = document.createElement("td");
+      difficultyCell.textContent = katas[kataIndex].obtenerDificultad();
+      row.appendChild(difficultyCell);
+      
+      let inputCellChange = document.createElement("td");
+      let inputElementChange = document.createElement("input");
+      inputElementChange.type = "submit";
+      inputElementChange.className = "see_more";
+      inputElementChange.value = "Cambiar estado";
+      inputElementChange.id = "cambiar_button" + kataIndex;
+      inputCellChange.appendChild(inputElementChange);
+      row.appendChild(inputCellChange);
+
       tbody.appendChild(row);
   }
   table.appendChild(tbody);
