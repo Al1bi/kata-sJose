@@ -173,4 +173,11 @@ describe("Katas Individuales ", () => {
                                                       new Kata("katalan numbers", "katalan numbers la serie", 3, true)]);
   });
 
+  it("Deberia devolver una lista de una sola kata que esta no esta terminada", () => {
+    let catologo = new Catologo(); 
+    catologo.agregarKata(new Kata("KataBasic", "Esta es la kata basica para el test", 1, false)); 
+    catologo.agregarKata(new Kata("Borisaurio", "Descrip", 2, true)); 
+
+    expect(catologo.buscarKatasNoTerminadas()).toEqual([new Kata("KataBasic", "Esta es la kata basica para el test", 1, false)]);
+  });
 });             

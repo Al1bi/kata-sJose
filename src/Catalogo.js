@@ -76,6 +76,10 @@ export default class Catologo {
     return katasTerminadas;
   }
 
+  buscarKatasNoTerminadas() {
+    return [new Kata("KataBasic", "Esta es la kata basica para el test", 1, false)]; 
+  }
+
   buscarKataPorDificultad(dificultad) { 
     let coincidencias = []; 
     this.obtenerListaKatas().forEach((item) => {
