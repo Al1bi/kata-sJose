@@ -77,7 +77,13 @@ export default class Catologo {
   }
 
   buscarKatasNoTerminadas() {
-    return [new Kata("KataBasic", "Esta es la kata basica para el test", 1, false)]; 
+    let katasNoTerminadas = []; 
+    this.obtenerListaKatas().forEach((item) => {
+      if(item.obtenerEstado() === false) {
+        katasNoTerminadas.push(item);
+      }
+    })
+  return katasNoTerminadas;
   }
 
   buscarKataPorDificultad(dificultad) { 
