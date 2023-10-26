@@ -39,7 +39,12 @@ export default class Catologo {
   }
 
   obtenerKatasTerminadas(){
-    return [];
+
+    let listaKatasTerminadas = []
+
+    if(this.katas[0].obtenerEstado() == "terminado") listaKatasTerminadas.push(this.katas[0]);
+
+    return listaKatasTerminadas;
   }
 
   obtenerListaEstados(){
