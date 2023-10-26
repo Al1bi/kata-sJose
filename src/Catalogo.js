@@ -77,9 +77,11 @@ export default class Catologo {
 
   buscarKataPorEstado(estado) { 
     let coincidencias = []; 
-      if (this.katas[0].obtenerEstado() == estado) {
-        coincidencias.push(this.katas[0]);
+    this.obtenerListaKatas().forEach((item) => {
+      if (item.obtenerEstado() == estado) {
+        coincidencias.push(item);
       }
+    });
       return coincidencias
   }
 }

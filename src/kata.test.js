@@ -157,6 +157,17 @@ describe("Katas Individuales ", () => {
     catalogo.agregarKata(kata);
     expect(catalogo.buscarKataPorEstado("terminado")).toEqual([kata]);
   });
+
+  it("Deberia obtener una lista con un katas terminadas", () => {    
+    let catalogo = new Catologo();
+    catalogo.agregarKata(new Kata("Kata 3", "Katita", 3, "terminado"));
+    catalogo.agregarKata(new Kata("Kata 2", "Katita", 4, "terminado"));
+    catalogo.agregarKata(new Kata("Kata 1", "Katita", 2, "terminado"));
+    catalogo.agregarKata(new Kata("Kata 0", "Katita", 1, "terminado"));
+    catalogo.agregarKata(new Kata("Kata -1", "Katita", 5, "terminado"));
+
+    expect(catalogo.buscarKataPorEstado("terminado")).toEqual(catalogo.obtenerListaKatas());
+  });
   
 
 });
