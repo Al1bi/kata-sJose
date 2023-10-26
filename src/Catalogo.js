@@ -1,4 +1,4 @@
-import Kata from "./Kata";
+import Kata from "./Kata.js";
 
 export default class Catologo {
 

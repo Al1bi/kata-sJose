@@ -10,26 +10,27 @@ let botonMostrarCatalogo = document.querySelector("#enviar_button");
 
 let catologo = new Catologo(); 
 
-catologo.agregarKata(new Kata("FizzBuzz", "A program that prints numbers from 1 to 100, but for multiples of three it prints “Fizz” instead of the number and for the multiples of five it prints “Buzz”. For numbers which are multiples of both three and five it prints “FizzBuzz”."));
-catologo.agregarKata(new Kata("PrimeFactors", "Compute the prime factors of a given natural number."));
-catologo.agregarKata(new Kata("BowlingScore", "Calculate the total score of a bowling game."));
-catologo.agregarKata(new Kata("CoinChange", "Given a number of denominations and a sum, find the minimum number of coins that make up the sum."));
-catologo.agregarKata(new Kata("StringCalculator", "Create a simple String calculator with a method that takes a string and returns its sum."));
-catologo.agregarKata(new Kata("PalindromeCheck", "Determine if a given string is a palindrome."));
-catologo.agregarKata(new Kata("LongestSubarraySum", "Find the length of the longest subarray with a given sum."));
-catologo.agregarKata(new Kata("AnagramDetection", "Detect if two strings are anagrams."));
-catologo.agregarKata(new Kata("BinarySearchTree", "Implement a binary search tree with methods for insertion, deletion and in-order traversal."));
-catologo.agregarKata(new Kata("MaxPathSum", "Find the maximum path sum in a binary tree."));
-catologo.agregarKata(new Kata("ShortestPathMaze", "Find the shortest path in a maze from a given start point to a destination."));
-catologo.agregarKata(new Kata("KnightTour", "Find a knight's tour on a chess board."));
-catologo.agregarKata(new Kata("KnapsackProblem", "Given weights and values of n items, find the maximum value that can be obtained in the knapsack using the items."));
-catologo.agregarKata(new Kata("JobScheduling", "Schedule jobs to maximize profit under given constraints."));
-catologo.agregarKata(new Kata("EditDistance", "Compute the minimum number of edits required to change one string into another."));
-catologo.agregarKata(new Kata("BalancedBrackets", "Check for balanced brackets in an expression."));
-catologo.agregarKata(new Kata("CycleDetection", "Detect a cycle in a directed graph."));
-catologo.agregarKata(new Kata("LongestPalindromeSubstring", "Find the longest palindromic substring in a given string."));
-catologo.agregarKata(new Kata("PowerSet", "Find all the subsets of a given set of integers."));
-catologo.agregarKata(new Kata("MaxFlowNetwork", "Find the maximum flow in a flow network with the Ford-Fulkerson algorithm."));
+catologo.agregarKata(new Kata("FizzBuzz", "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.", 1));
+catologo.agregarKata(new Kata("PrimeFactors", "Develop a function that computes and returns the prime factorization of a given number in the form of an array of numbers.", 3));
+catologo.agregarKata(new Kata("BowlingScore", "Create a program that takes in an array of rolls and calculates the total score of a 10-pin bowling game including frames, spares, and strikes.", 2));
+catologo.agregarKata(new Kata("CoinChange", "Design a function that computes the minimum number of coins required to make a certain amount of change given an array of coin denominations.", 4));
+catologo.agregarKata(new Kata("StringCalculator", "Design a calculator that can add numbers based on a given comma-separated string input. Handle potential exceptions and edge cases.", 1));
+catologo.agregarKata(new Kata("PalindromeCheck", "Write a function that checks if a given string (ignoring spaces, punctuation, and capitalization) is a palindrome.", 1));
+catologo.agregarKata(new Kata("LongestSubarraySum", "Implement a function that finds and returns the length of the longest subarray in an array of integers that has a specified sum.", 3));
+catologo.agregarKata(new Kata("AnagramDetection", "Create a program that determines if two provided strings are anagrams of each other, disregarding spaces and capitalization.", 2));
+catologo.agregarKata(new Kata("BinarySearchTree", "Implement a binary search tree from scratch with functionalities for insertion, search, deletion, and in-order traversal.", 3));
+catologo.agregarKata(new Kata("MaxPathSum", "Given a binary tree, find the path that gives the maximum sum. The path may start and end at any node in the tree.", 5));
+catologo.agregarKata(new Kata("ShortestPathMaze", "Given a 2D grid representing a maze, find the shortest path from a start point to an endpoint, if it exists.", 5));
+catologo.agregarKata(new Kata("KnightTour", "Determine a sequence of moves for a knight on a chessboard such that it visits every square exactly once.", 5));
+catologo.agregarKata(new Kata("KnapsackProblem", "Given an array of items with specific weights and values, determine the combination of items to include in a knapsack of fixed capacity to achieve the maximum total value.", 3));
+catologo.agregarKata(new Kata("JobScheduling", "Given an array of jobs with start times, end times, and profits, find the maximum profit obtainable by scheduling non-overlapping jobs.", 3));
+catologo.agregarKata(new Kata("EditDistance", "Determine the minimum number of edit operations (insertions, deletions, substitutions) required to transform one string into another.", 4));
+catologo.agregarKata(new Kata("BalancedBrackets", "Given a string containing characters '{', '}', '(', ')', '[', and ']', determine if the input string's brackets are balanced.", 2));
+catologo.agregarKata(new Kata("CycleDetection", "Implement a function to detect if a cycle exists in a directed graph.", 3));
+catologo.agregarKata(new Kata("LongestPalindromeSubstring", "Design a function to find and return the longest palindromic substring from a given input string.", 4));
+catologo.agregarKata(new Kata("PowerSet", "Given a set of distinct integers, generate all possible subsets (power set) of it.", 3));
+catologo.agregarKata(new Kata("MaxFlowNetwork", "Given a graph representing a flow network, implement the Ford-Fulkerson algorithm to compute the maximum flow.", 5));
+
 
 
 form.addEventListener("submit", (event) => {
@@ -41,7 +42,7 @@ form.addEventListener("submit", (event) => {
   let tbody = document.createElement("tbody");
 
   let headerRow = document.createElement("tr");
-  ["Título", "Descripción", "Ver más"].forEach(headerText => {
+  ["Título", "Descripción", "Ver más", "Dificultad"].forEach(headerText => {
       let th = document.createElement("th");
       th.textContent = headerText;
       headerRow.appendChild(th);
@@ -69,7 +70,9 @@ form.addEventListener("submit", (event) => {
       inputElement.id = "detalle_button" + kataIndex;
       inputCell.appendChild(inputElement);
       row.appendChild(inputCell);
-
+      let difficultyCell = document.createElement("td");
+      difficultyCell.textContent = katas[kataIndex].obtenerDificultad();
+      row.appendChild(difficultyCell);
       tbody.appendChild(row);
   }
   table.appendChild(tbody);
@@ -87,7 +90,7 @@ searchForm.addEventListener("submit", (event) => {
   let thead = document.createElement("thead");
   let tbody = document.createElement("tbody");
   let headerRow = document.createElement("tr");
-  ["Título", "Descripción", "Acción"].forEach(headerText => {
+  ["Título", "Descripción", "Acción", "Dificultad"].forEach(headerText => {
       let th = document.createElement("th");
       th.textContent = headerText;
       headerRow.appendChild(th);
@@ -113,6 +116,9 @@ searchForm.addEventListener("submit", (event) => {
       inputElement.className = "see_more";
       inputCell.appendChild(inputElement);
       row.appendChild(inputCell);
+      let difficultyCell = document.createElement("td");
+      difficultyCell.textContent = katas[kataIndex].obtenerDificultad();
+      row.appendChild(difficultyCell);
       tbody.appendChild(row);
   }
   table.appendChild(tbody);

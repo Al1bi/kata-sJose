@@ -212,7 +212,8 @@ main
 #show_result_search td,
 #show_result th, 
 #show_result td {
-    padding: 10px 15px;
+	padding: 5px;
+    vertical-align: middle;   
     border-bottom: 1px solid var(--secondaryColor);
 }
 #show_result_search th,

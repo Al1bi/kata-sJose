@@ -88,5 +88,9 @@ describe("Katas Individuales ", () => {
 
     expect(catologo.buscarKata("")).toEqual(catologo.obtenerListaKatas());
   });
+  it("Deberia devolver la dificultad de una kata en la escala de 5", () => {
+    let kata = new Kata("Jose", "Katita", 5);
+    expect(kata.obtenerDificultad()).toEqual(5);
+  });
 });
 
