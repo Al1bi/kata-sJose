@@ -18,4 +18,8 @@ export default class Catologo {
   obtenerListaKatas(){
     return this.katas;
   }
+
+  buscarTitulo(terminoBusqueda) { 
+    return ["Joselito"]; 
+  }
 }

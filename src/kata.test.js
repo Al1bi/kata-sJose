@@ -34,4 +34,14 @@ describe("Katas Individuales ", () => {
     catologo.agregarKata(new Kata("Joselito", "Tener cuidado al desarrollar esta kata")); 
     expect(catologo.obtenerListaKatas()).toEqual([{"descripcion": "Tener cuidado al desarrollar esta kata","titulo": "Joselito"}]);
   });
+
+  it("Deberia devolver una lista de los titulos de las katas que empiecen por J", () => {
+    let catologo = new Catologo(); 
+    catologo.agregarKata(new Kata("Joselito")); 
+    catologo.agregarKata(new Kata("Borisaurio")); 
+    catologo.agregarKata(new Kata("Maquinolas")); 
+
+    expect(catologo.buscarTitulo("J")).toEqual(["Joselito"]);
+  })
 });
+
