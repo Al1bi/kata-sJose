@@ -195,8 +195,14 @@ describe("Katas Individuales ", () => {
     expect(testKata.obtenerEstado()).toEqual(false);  
   })
 
-  it("Deberia poder cambiar el estado de una kata con estado no terminado y retornar el nuevo estado true", () => {
+  it("Deberia cambiar el estado de una kata con estado no terminado y retornar el nuevo estado true", () => {
     let testKata = new Kata("katastople");
     expect(testKata.cambiarEstado()).toEqual(true);  
+  }); 
+
+  it("Deberia cambiar el estado de una kata con estado terminado y retornar el nuevo estado false", () => {
+    let testKata = new Kata("katastople");
+    testKata.estadoTerminado = true; 
+    expect(testKata.cambiarEstado()).toEqual(false);  
   }); 
 });             
