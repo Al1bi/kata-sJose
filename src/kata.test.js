@@ -162,5 +162,12 @@ describe("Katas Individuales ", () => {
     expect(Catalogo.obtenerListaEstados()).toEqual(["terminado", "no terminado", "no terminado", "terminado"]);
   });
 
+  it("Deberia devolver una lista vacia para obtener katas terminadas", () => {
+    let Catalogo = new Catologo();
+    Catalogo.agregarKata(new Kata("Jose", "Katita", 4, "no terminado"));
+    expect(Catalogo.obtenerKatasTerminadas()).toEqual([]);
+  });
+
+
 });
 

@@ -38,6 +38,10 @@ export default class Catologo {
     return this.obtenerListaTitulos();
   }
 
+  obtenerKatasTerminadas(){
+    return [];
+  }
+
   obtenerListaEstados(){
 
     let estados = [];
