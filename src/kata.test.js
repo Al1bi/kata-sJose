@@ -152,5 +152,15 @@ describe("Katas Individuales ", () => {
     expect(Catalogo.obtenerListaEstados()).toEqual(["terminado"]);
   });
 
+  it("Deberia devolver una lista de varias katas con estados terminado y no terminado", () => {
+    let Catalogo = new Catologo();
+    Catalogo.agregarKata(new Kata("Jose", "Katita", 1, "terminado"));
+    Catalogo.agregarKata(new Kata("Denilson", "Katita", 1, "no terminado"));
+    Catalogo.agregarKata(new Kata("Perro Salchicha", "Katita", 1, "no terminado"));
+    Catalogo.agregarKata(new Kata("Alice y Bob y los numeros magicos", "Katita", 1, "terminado"));
+
+    expect(Catalogo.obtenerListaEstados()).toEqual(["terminado", "no terminado", "no terminado", "terminado"]);
+  });
+
 });
 

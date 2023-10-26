@@ -39,7 +39,14 @@ export default class Catologo {
   }
 
   obtenerListaEstados(){
-    return [this.katas[0].obtenerEstado()];
+
+    let estados = [];
+
+    for(let i = 0; i < this.katas.length ; i++){
+      estados.push(this.katas[i].obtenerEstado());
+    }
+
+    return estados;
   }
 
   buscarTitulo(terminoBusqueda) { 
