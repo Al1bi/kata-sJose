@@ -47,4 +47,13 @@ export default class Catologo {
       katasFiltradas = this.obtenerListaKatas(); 
     return katasFiltradas;
   }
+  buscarKataPorDificultad(dificultad) { 
+    let coincidencias = []; 
+    this.obtenerListaKatas().forEach((item) => {
+      if (item.obtenerDificultad() == 5) {
+        coincidencias.push(item);
+      }
+    });
+    return coincidencias;
+  }
 }

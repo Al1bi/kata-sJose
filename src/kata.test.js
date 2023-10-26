@@ -92,5 +92,13 @@ describe("Katas Individuales ", () => {
     let kata = new Kata("Jose", "Katita", 5);
     expect(kata.obtenerDificultad()).toEqual(5);
   });
+  it("Deberia devolver una kata de dificultad 5", () => {
+    let catologo = new Catologo(); 
+    let kata = new Kata("Jose", "Katita", 5);
+    catologo.agregarKata(kata);
+    expect(catologo.buscarKataPorDificultad(5)).toEqual([kata]);
+  });
+
+
 });
 
