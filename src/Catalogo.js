@@ -29,13 +29,14 @@ export default class Catologo {
   }
   
   buscarKata(terminoBusqueda) { 
-    terminoBusqueda = terminoBusqueda.toLowerCase();
     let katasBuscadas = []; 
+    terminoBusqueda = terminoBusqueda.toLowerCase();
     this.obtenerListaTitulos().forEach((item, index) => {
       if (item.toLowerCase().includes(terminoBusqueda)) {
         katasBuscadas.push(this.katas[index]);
       }
     });
+    if(terminoBusqueda === "") katasBuscadas = this.obtenerListaKatas(); 
     return katasBuscadas;
   }
 }

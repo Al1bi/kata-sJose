@@ -80,5 +80,13 @@ describe("Katas Individuales ", () => {
 
     expect(catologo.buscarKata("Jose")).toEqual([searchedKata]);
   });
+  it("Deberia devolver la lista de todas las katas al buscar con una cadena vacia", () => {
+    let catologo = new Catologo(); 
+    catologo.agregarKata(new Kata("Joselito", "Descrip")); 
+    catologo.agregarKata(new Kata("Borisaurio", "Descrip")); 
+    catologo.agregarKata(new Kata("Maquinolas")); 
+
+    expect(catologo.buscarKata("")).toEqual(catologo.obtenerListaKatas());
+  });
 });
 
