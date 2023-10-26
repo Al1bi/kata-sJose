@@ -5,6 +5,7 @@ const form = document.querySelector("#request");
 const searchForm = document.querySelector("#search_form");
 const div = document.querySelector("#show_result");
 const div_results_search = document.querySelector("#show_result_search");
+const stateForm = document.querySelector("#state_form");
 
 let botonMostrarCatalogo = document.querySelector("#enviar_button");
 
@@ -26,10 +27,10 @@ catologo.agregarKata(new Kata("KnapsackProblem", "Given an array of items with s
 catologo.agregarKata(new Kata("JobScheduling", "Given an array of jobs with start times, end times, and profits, find the maximum profit obtainable by scheduling non-overlapping jobs.", 3));
 catologo.agregarKata(new Kata("EditDistance", "Determine the minimum number of edit operations (insertions, deletions, substitutions) required to transform one string into another.", 4));
 catologo.agregarKata(new Kata("BalancedBrackets", "Given a string containing characters '{', '}', '(', ')', '[', and ']', determine if the input string's brackets are balanced.", 2));
-catologo.agregarKata(new Kata("CycleDetection", "Implement a function to detect if a cycle exists in a directed graph.", 3));
-catologo.agregarKata(new Kata("LongestPalindromeSubstring", "Design a function to find and return the longest palindromic substring from a given input string.", 4));
+catologo.agregarKata(new Kata("CycleDetection", "Implement a function to detect if a cycle exists in a directed graph.", 3, false));
+catologo.agregarKata(new Kata("LongestPalindromeSubstring", "Design a function to find and return the longest palindromic substring from a given input string.", 4, false));
 catologo.agregarKata(new Kata("PowerSet", "Given a set of distinct integers, generate all possible subsets (power set) of it.", 3));
-catologo.agregarKata(new Kata("MaxFlowNetwork", "Given a graph representing a flow network, implement the Ford-Fulkerson algorithm to compute the maximum flow.", 5));
+catologo.agregarKata(new Kata("MaxFlowNetwork", "Given a graph representing a flow network, implement the Ford-Fulkerson algorithm to compute the maximum flow.", 5, true));
 
 
 
@@ -125,6 +126,55 @@ searchForm.addEventListener("submit", (event) => {
   div_results_search.appendChild(table);
   agregarEscuchadoresBotonesLeer();
 });
+
+
+stateForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  div_results_search.innerHTML = ""; 
+  let table = document.createElement("table");
+  let thead = document.createElement("thead");
+  let tbody = document.createElement("tbody");
+  let headerRow = document.createElement("tr");
+  ["Título", "Descripción", "Acción", "Dificultad"].forEach(headerText => {
+      let th = document.createElement("th");
+      th.textContent = headerText;
+      headerRow.appendChild(th);
+  });
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+  
+  const estadoParaBuscar = document.querySelector("#state_box").value;
+  let katas = []; 
+  if(estadoParaBuscar == "terminado") 
+    katas = catologo.buscarKatasTerminadas(); 
+  else if(estadoParaBuscar == "no terminado")
+    katas = catologo.buscarKatasNoTerminadas(); 
+  for(let kataIndex in katas) {
+      let row = document.createElement("tr");
+      let titleCell = document.createElement("td");
+      titleCell.textContent = katas[kataIndex].obtenerTitulo();
+      row.appendChild(titleCell);
+      let descriptionCell = document.createElement("td");
+      descriptionCell.textContent = katas[kataIndex].obtenerDescripcion();
+      row.appendChild(descriptionCell);
+      let inputCell = document.createElement("td");
+      let inputElement = document.createElement("input");
+      inputElement.type = "submit";
+      inputElement.value = "Leer mas";
+      inputElement.id = "detalle_button" + kataIndex;
+      inputElement.className = "see_more";
+      inputCell.appendChild(inputElement);
+      row.appendChild(inputCell);
+      let difficultyCell = document.createElement("td");
+      difficultyCell.textContent = katas[kataIndex].obtenerDificultad();
+      row.appendChild(difficultyCell);
+      tbody.appendChild(row);
+  }
+  table.appendChild(tbody);
+  div_results_search.appendChild(table);
+  agregarEscuchadoresBotonesLeer();
+});
+
 
 
 function agregarEscuchadoresBotonesLeer() {
