@@ -143,8 +143,15 @@ describe("Katas Individuales ", () => {
 
   it("Deberia retornar al preguntar por el estado de una kata no terminada", () => {
 
-    let testKata = new Kata("KataBasic", "Esta es la kata basica para el test", false); 
+    let testKata = new Kata("KataBasic", "Esta es la kata basica para el test", 1, false); 
 
     expect(testKata.obtenerEstado()).toEqual(false);
+  });
+
+  it("Deberia retornar true al preguntar por el estado de una kata terminada", () => {
+
+    let testKata = new Kata("KataBasic", "Esta es la kata basica para el test", 2, true); 
+
+    expect(testKata.obtenerEstado()).toEqual(true);
   });
 });
