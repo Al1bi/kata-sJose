@@ -29,7 +29,13 @@ export default class Catologo {
   }
   
   buscarKata(terminoBusqueda) { 
-    let searchedKata = new Kata("Borisaurio", "Descrip")
-    return [searchedKata];
+    terminoBusqueda = terminoBusqueda.toLowerCase();
+    let katasBuscadas = []; 
+    this.obtenerListaTitulos().forEach((item, index) => {
+      if (item.toLowerCase().includes(terminoBusqueda)) {
+        katasBuscadas.push(this.katas[index]);
+      }
+    });
+    return katasBuscadas;
   }
 }
