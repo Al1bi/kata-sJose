@@ -50,7 +50,7 @@ export default class Catologo {
   buscarKataPorDificultad(dificultad) { 
     let coincidencias = []; 
     this.obtenerListaKatas().forEach((item) => {
-      if (item.obtenerDificultad() == 5) {
+      if (item.obtenerDificultad() == dificultad) {
         coincidencias.push(item);
       }
     });

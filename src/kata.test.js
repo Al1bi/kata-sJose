@@ -98,6 +98,31 @@ describe("Katas Individuales ", () => {
     catologo.agregarKata(kata);
     expect(catologo.buscarKataPorDificultad(5)).toEqual([kata]);
   });
+  it("Deberia devolver una kata de dificultad 4", () => {
+    let catologo = new Catologo(); 
+    let kata = new Kata("Jose", "Katita", 4);
+    catologo.agregarKata(kata);
+    expect(catologo.buscarKataPorDificultad(4)).toEqual([kata]);
+  });
+  it("Deberia devolver una kata de dificultad 3", () => {
+    let catologo = new Catologo(); 
+    let kata = new Kata("Jose", "Katita", 3);
+    catologo.agregarKata(kata);
+    expect(catologo.buscarKataPorDificultad(3)).toEqual([kata]);
+  });
+  it("Deberia devolver una lista katas de dificultad 1", () => {
+    let catologo = new Catologo(); 
+    let catologo1 = new Catologo();
+    catologo.agregarKata(new Kata("Jose", "Katita", 1));
+    catologo.agregarKata(new Kata("Kata 2", "Katita", 1));
+    catologo.agregarKata(new Kata("Kata 3", "Katita", 1));
+    catologo1.agregarKata(new Kata("Jose", "Katita", 1));
+    catologo1.agregarKata(new Kata("Kata 2", "Katita", 1));
+    catologo1.agregarKata(new Kata("Kata 3", "Katita", 1));
+    catologo1.agregarKata(new Kata("Kata 2", "Katita", 2));
+    catologo1.agregarKata(new Kata("Kata 3", "Katita", 3));
+    expect(catologo1.buscarKataPorDificultad(1)).toEqual(catologo.obtenerListaKatas());
+  });
 
 
 });
