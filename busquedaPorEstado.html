@@ -20,7 +20,7 @@
         <div class="options">
           <a href="/index.html">Home</a>
           <a href="/busquedaPorDificultad.html">Busqueda por dificultad</a>
-          <a href="/busquedaPorEstado.html">BUSQUEDA POR ESTADO (VENIR ACA)</a>
+          <a href="/busquedaPorEstado.html">Busqueda por Estado</a>
       </div>
       </nav>
     </div>
@@ -33,20 +33,18 @@
             <input type="submit" value="Ver catálogo" id="enviar_button"/>
           </form>
         </div>
-        <div id="show_result">
-        </div>
+        <div id="search_bar"> 
+            <form id="search_form"> 
+              <p>Buscar:</p>
+              <input type="text" value="" id="search_box"/>
+            </form>
       </div>
-      <div id = "search_bar"> 
-        <form id="search_form"> 
-          <p>Buscar:</p>
-          <input type="text" value="" id="search_box"/>
-        </form>
-        <div id="show_result_search">
+        <div id="show_result">
         </div>
       </div>
     </div>
   </main>
-  <script type="module" src="src/presenter.js"></script>
+  <script type="module" src="src/presenterExamen.js"></script>
   <script src="animaciones/animations.js"></script>
 </body>
 </html>

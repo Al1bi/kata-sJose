@@ -160,13 +160,22 @@ describe("Katas Individuales ", () => {
 
   it("Deberia obtener una lista con un katas terminadas", () => {    
     let catalogo = new Catologo();
+    let catalogo1 = new Catologo();
     catalogo.agregarKata(new Kata("Kata 3", "Katita", 3, "terminado"));
     catalogo.agregarKata(new Kata("Kata 2", "Katita", 4, "terminado"));
     catalogo.agregarKata(new Kata("Kata 1", "Katita", 2, "terminado"));
     catalogo.agregarKata(new Kata("Kata 0", "Katita", 1, "terminado"));
     catalogo.agregarKata(new Kata("Kata -1", "Katita", 5, "terminado"));
+    
 
-    expect(catalogo.buscarKataPorEstado("terminado")).toEqual(catalogo.obtenerListaKatas());
+    catalogo1.agregarKata(new Kata("Kata 3", "Katita", 3, "terminado"));
+    catalogo1.agregarKata(new Kata("Kata 2", "Katita", 4, "terminado"));
+    catalogo1.agregarKata(new Kata("Kata 1", "Katita", 2, "terminado"));
+    catalogo1.agregarKata(new Kata("Kata 0", "Katita", 1, "terminado"));
+    catalogo1.agregarKata(new Kata("Kata -1", "Katita", 5, "terminado"));
+    catalogo1.agregarKata(new Kata("Kata extra", "Katita", 5, "no terminado"));
+
+    expect(catalogo1.buscarKataPorEstado("terminado")).toEqual(catalogo.obtenerListaKatas());
   });
   
 
