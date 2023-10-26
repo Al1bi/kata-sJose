@@ -16,7 +16,6 @@ catologo.agregarKata(new Kata("M&M's"));
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  div.innerHTML = "";
   let katas = catologo.obtenerListaKatas();
   for(let kataIndex in katas)
   {
@@ -25,6 +24,10 @@ form.addEventListener("submit", (event) => {
       katas[kataIndex].obtenerTitulo() +  ", " + katas[kataIndex].obtenerDescripcion() +"<p>" +
       "<input type=\"submit\" value=\"Leer mas\" id=\"detalle_button"+kataIndex+"\"/>" +
     "</div>";
+    console.log("<div>" +
+    katas[kataIndex].obtenerTitulo() +  ", " + katas[kataIndex].obtenerDescripcion() +"<p>" +
+    "<input type=\"submit\" value=\"Leer mas\" id=\"detalle_button"+kataIndex+"\"/>" +
+  "</div>");
   
   }
 

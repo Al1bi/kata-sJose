@@ -47,3 +47,150 @@ table {
 	border-spacing: 0;
 }
 /*****************************************************************/
+:root{
+	--mainFont:'Chivo Mono', monospace;
+	--mainColor: #011D2F;
+	--secondaryColor: #AFC4C6;
+}
+body{
+	width: 100%;
+	height: 100%;
+	background-color: #FFF7EA;
+}
+
+header
+{
+	width: 100%;
+	height: 10vh;
+}
+.header_container{
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	background-color: var(--secondaryColor);
+
+}
+#kata_title
+{
+	width: 20%;
+	height: 100%;
+	color: var(--mainColor);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 2rem;
+	font-family: var(--mainFont);
+	letter-spacing: -2px;
+	font-weight: bold;
+	
+}
+
+nav{
+	width: 80%;
+	height: 100%;	
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	justify-content: right;
+	color: white;
+	padding: 0px 0;
+	
+}
+.options {
+	display: flex;
+
+  }
+  
+.options a {
+  text-decoration: none;
+  color: white;
+  margin-right: 65px;
+  font-size: 20px;
+  font-family: var(--mainFont);
+  color: var(--mainColor);
+  font-weight: 600;
+}
+main
+{
+	height: 90vh;
+	width: 100%;
+}
+
+.show_catalog_container{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+#request_form{
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+#request input[type="submit"] {
+    border: 1px solid var(--mainColor);
+    width: 200px;
+    height: 75px;
+    border-radius: 5px;
+    background-color: var(--secondaryColor);
+    color: var(--mainColor);
+    font-size: larger;
+    font-family: var(--mainFont);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.5s, transform 0.3s;
+}
+#request input[type="submit"]:hover {
+    background-color: darken(var(--secondaryColor), 20%); 
+	border: 3px solid black;
+}
+
+#request input[type="submit"]:active {
+    transform: translateY(5px); 
+}
+#show_result
+{
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#show_result table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: var(--mainFont);
+    box-shadow: 0 0 20px var(--secondaryColor);
+}
+
+#show_result th, 
+#show_result td {
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--secondaryColor);
+}
+
+#show_result th {
+    background-color: var(--secondaryColor);
+    color: var(--mainColor);
+    font-weight: bold;
+}
+
+#show_result tbody tr:hover {
+    background-color: var(--secondaryColor);
+}
+
+#show_result tbody tr:last-child td {
+    border-bottom: none;
+}

@@ -3,14 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="./styles/indexcss.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chivo+Mono&display=swap" rel="stylesheet">
+  <title>Katakrypt</title>
 </head>
 <body>
-  <nav>
-    <div id="kata_title">
-      <h1>Josekatalog</h1>
+  <header>
+    <div class="header_container">
+      <div id="kata_title">
+        <h1 data-value="Katakrypt">Katakrypt</h1>
+      </div>
+      <nav>
+        <div class="options">
+          <a href="#">Home</a>
+          <a href="/buscar.html">Buscar</a>
+
+      </div>
+      </nav>
     </div>
-  </nav>
+  </header>
   <main>
     <div id = "search_bar"> 
       <form id="search_form"> 
@@ -18,16 +32,19 @@
         <input type="text" value="" id="search_box"/>
       </form>
     </div>
-    <div id="show_div">
+    <div class="show_catalog_container">
       <div id="request_form">
         <form id="request">
-          <input type="submit" value="Mostrar catalogo" id="enviar_button"/>
+          <input type="submit" value="Ver Katalog" id="enviar_button"/>
         </form>
       </div>
-      <div id="show_result"></div>
+      <div id="show_result">
+
+      </div>
     </div>
   </main>
   <script type="module" src="src/presenter.js"></script>
+  <script src="animaciones/animations.js"></script>
 </body>
 </html>
 
