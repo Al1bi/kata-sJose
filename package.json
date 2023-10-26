@@ -4,8 +4,8 @@
   "description": "",
   "default": "index.html",
   "scripts": {
-    "start": "parcel index.html detalleKata.html",
-    "build": "parcel build index.html detalleKata.html",
+    "start": "parcel index.html detalleKata.html busquedaPorDificultad.html",
+    "build": "parcel build index.html detalleKata.html busquedaPorDificultad.html",
     "test": "jest --watch",
     "test-once": "jest --verbose --coverage",
     "cypress": "cypress open",
