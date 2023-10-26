@@ -141,11 +141,17 @@ describe("Katas Individuales ", () => {
     expect(catologo.obtenerListaTitulosOrdenadaAsc()).toEqual([ "Borisaurio", "Joselito", "Maquinolas"]);
   });
 
-  it("Deberia obtener el estado no terminado de una kata", () => {
-    
+  it("Deberia obtener el estado no terminado de una kata", () => {    
     let kata = new Kata("Kata 3", "Katita", 3, "no terminado"); 
     expect(kata.obtenerEstado()).toEqual("no terminado");
   });
+  it("Deberia obtener una lista con un elemento kata no terminado", () => {    
+    let kata = new Kata("Kata 3", "Katita", 3, "no terminado"); 
+    let catalogo = new Catologo();
+    catalogo.agregarKata(kata);
+    expect(catalogo.buscarKataPorEstado()).toEqual([kata]);
+  });
+  
 
 });
 

@@ -74,4 +74,12 @@ export default class Catologo {
     });
     return coincidencias;
   }
+
+  buscarKataPorEstado() { 
+    let coincidencias = []; 
+      if (this.katas[0].obtenerEstado() == "no terminado") {
+        coincidencias.push(this.katas[0]);
+      }
+      return coincidencias
+  }
 }
