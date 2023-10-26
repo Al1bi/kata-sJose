@@ -32,7 +32,7 @@ describe("Katas Individuales ", () => {
   it("Deberia obtener una lista con el titulo e informacion adicional de la kata ", () => {
     let catologo = new Catologo(); 
     catologo.agregarKata(new Kata("Joselito", "Tener cuidado al desarrollar esta kata")); 
-    expect(catologo.obtenerListaKatas()).toEqual([{"descripcion": "Tener cuidado al desarrollar esta kata","titulo": "Joselito"}]);
+    expect(catologo.obtenerListaKatas()).toEqual([new Kata("Joselito", "Tener cuidado al desarrollar esta kata")]);
   });
 
   it("Deberia devolver una lista de los titulos de las katas que empiecen por J", () => {
@@ -189,4 +189,9 @@ describe("Katas Individuales ", () => {
     expect(catologo.buscarKatasNoTerminadas()).toEqual([new Kata("KataBasic", "Esta es la kata basica para el test", 1, false), 
                                                       new Kata("katalan numbers", "katalan numbers la serie", 3, false)]);
   });
+
+  it("Deberia devolver false al obtener el estado de una kata recien creada sin especificar su estado", () => {
+    let testKata = new Kata("katastople");
+    expect(testKata.obtenerEstado()).toEqual(false);  
+  })
 });             
