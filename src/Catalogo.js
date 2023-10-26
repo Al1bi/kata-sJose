@@ -15,6 +15,13 @@ export default class Catologo {
     }
     return titulos; 
   }
+
+  obtenerListaKatasOrdTituloAsc(){
+    let comparadorNombre = (a, b) => a.obtenerTitulo().localeCompare(b.obtenerTitulo());
+    this.ordenarPorUnAtributo(comparadorNombre);
+    return this.katas;
+  }
+
   obtenerListaKatas(){
     return this.katas;
   }

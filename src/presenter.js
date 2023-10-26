@@ -50,7 +50,7 @@ form.addEventListener("submit", (event) => {
   thead.appendChild(headerRow);
   table.appendChild(thead);
 
-  let katas = catologo.obtenerListaKatas();
+  let katas = catologo.obtenerListaKatasOrdTituloAsc();
   for(let kataIndex in katas) {
       let row = document.createElement("tr");
 
