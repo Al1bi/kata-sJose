@@ -20,8 +20,9 @@ export default class Catologo {
   }
 
   buscarTitulo(terminoBusqueda) { 
+    terminoBusqueda = terminoBusqueda.toLowerCase()
     let listaFiltrada = this.obtenerListaTitulos().filter(item => 
-      item.includes(terminoBusqueda)
+      item.toLowerCase().includes(terminoBusqueda)
     ); 
     return listaFiltrada
   }

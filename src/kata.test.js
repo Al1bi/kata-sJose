@@ -42,7 +42,7 @@ describe("Katas Individuales ", () => {
     catologo.agregarKata(new Kata("Maquinolas")); 
 
     expect(catologo.buscarTitulo("J")).toEqual(["Joselito"]);
-  })
+  });
   it("Deberia devolver una lista de los titulos de las katas que empiecen por B", () => {
     let catologo = new Catologo(); 
     catologo.agregarKata(new Kata("Joselito")); 
@@ -50,6 +50,16 @@ describe("Katas Individuales ", () => {
     catologo.agregarKata(new Kata("Maquinolas")); 
 
     expect(catologo.buscarTitulo("B")).toEqual(["Borisaurio"]);
-  })
+  });
+
+  it("Deberia devolver una lista de los titulos de las katas que empiecen por la palabra maqui", () => {
+    let catologo = new Catologo(); 
+    catologo.agregarKata(new Kata("Joselito")); 
+    catologo.agregarKata(new Kata("Borisaurio")); 
+    catologo.agregarKata(new Kata("Maquinolas")); 
+
+    expect(catologo.buscarTitulo("maqui")).toEqual(["Maquinolas"]);
+  });
+  
 });
 
