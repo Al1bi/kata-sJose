@@ -33,11 +33,8 @@ export default class Catologo {
 
   obtenerListaTitulosOrdenadaAsc(){
     this.ordenarPorTituloAsc();
-    let titulos = [];
-    for(let indiceKata = 0; indiceKata < this.katas.length ; indiceKata++){
-      titulos.push(this.katas[indiceKata].obtenerTitulo());
-    }
-    return titulos;
+
+    return this.obtenerListaTitulos();
   }
 
   buscarTitulo(terminoBusqueda) { 
