@@ -1,4 +1,4 @@
-
+import Kata from "./Kata.js";
 export default class Catologo {
 
   constructor() {
@@ -65,6 +65,11 @@ export default class Catologo {
       katasFiltradas = this.obtenerListaKatas(); 
     return katasFiltradas;
   }
+  
+  buscarKatasTerminadas() {
+    return [new Kata("Borisaurio", "Descrip", 2, true)];
+  }
+
   buscarKataPorDificultad(dificultad) { 
     let coincidencias = []; 
     this.obtenerListaKatas().forEach((item) => {

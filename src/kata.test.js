@@ -154,4 +154,13 @@ describe("Katas Individuales ", () => {
 
     expect(testKata.obtenerEstado()).toEqual(true);
   });
+
+  it("Deberia devolver una lista de una sola kata que esta terminada", () => {
+    let catologo = new Catologo(); 
+    catologo.agregarKata(new Kata("KataBasic", "Esta es la kata basica para el test", 1, false)); 
+    catologo.agregarKata(new Kata("Borisaurio", "Descrip", 2, true)); 
+
+    expect(catologo.buscarKatasTerminadas()).toEqual([new Kata("Borisaurio", "Descrip", 2, true)]);
+  });
+
 });
