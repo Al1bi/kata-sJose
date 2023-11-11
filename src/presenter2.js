@@ -5,7 +5,7 @@ const searchFormDifficulty = document.querySelector("#search_form_difficulty");
 const div_results_search_difficulty = document.querySelector("#show_result_search_difficulty");
 
 
-let catologo = new Catologo(); 
+let catologo = new Catologo();
 
 catologo.agregarKata(new Kata("FizzBuzz", "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.", 1));
 catologo.agregarKata(new Kata("PrimeFactors", "Develop a function that computes and returns the prime factorization of a given number in the form of an array of numbers.", 3));
