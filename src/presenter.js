@@ -3,8 +3,7 @@ import Kata from "./Kata.js";
 
 const form = document.querySelector("#request");
 const searchForm = document.querySelector("#search_form");
-const div = document.querySelector("#show_result");
-const div_results_search = document.querySelector("#show_result_search");
+const div_result = document.querySelector("#show_result");
 
 let botonMostrarCatalogo = document.querySelector("#enviar_button");
 
@@ -33,14 +32,10 @@ catologo.agregarKata(new Kata("MaxFlowNetwork", "Given a graph representing a fl
 
 
 
-form.addEventListener("submit", (event) => {
-  div.innerHTML = " ";
-  event.preventDefault();
-
+function crearTable(){
+  div_result.innerHTML = " ";
   let table = document.createElement("table");
   let thead = document.createElement("thead");
-  let tbody = document.createElement("tbody");
-
   let headerRow = document.createElement("tr");
   ["Título", "Descripción", "Ver más", "Dificultad"].forEach(headerText => {
       let th = document.createElement("th");
@@ -49,80 +44,53 @@ form.addEventListener("submit", (event) => {
   });
   thead.appendChild(headerRow);
   table.appendChild(thead);
+  return table;
+}
 
-  let katas = catologo.obtenerListaKatasOrdTituloAsc();
+function llenarTable(katas, table){
+
+  let tbody = document.createElement("tbody");
+
   for(let kataIndex in katas) {
-      let row = document.createElement("tr");
-
-      let titleCell = document.createElement("td");
-      titleCell.textContent = katas[kataIndex].obtenerTitulo();
-      row.appendChild(titleCell);
-
-      let descriptionCell = document.createElement("td");
-      descriptionCell.textContent = katas[kataIndex].obtenerDescripcion();
-      row.appendChild(descriptionCell);
-
-      let inputCell = document.createElement("td");
-      let inputElement = document.createElement("input");
-      inputElement.type = "submit";
-      inputElement.className = "see_more";
-      inputElement.value = "Leer mas";
-      inputElement.id = "detalle_button" + kataIndex;
-      inputCell.appendChild(inputElement);
-      row.appendChild(inputCell);
-      let difficultyCell = document.createElement("td");
-      difficultyCell.textContent = katas[kataIndex].obtenerDificultad();
-      row.appendChild(difficultyCell);
-      tbody.appendChild(row);
+    let row = document.createElement("tr");
+    let titleCell = document.createElement("td");
+    titleCell.textContent = katas[kataIndex].obtenerTitulo();
+    row.appendChild(titleCell);
+    let descriptionCell = document.createElement("td");
+    descriptionCell.textContent = katas[kataIndex].obtenerDescripcion();
+    row.appendChild(descriptionCell);
+    let inputCell = document.createElement("td");
+    let inputElement = document.createElement("input");
+    inputElement.type = "submit";
+    inputElement.className = "see_more";
+    inputElement.value = "Leer mas";
+    inputElement.id = "detalle_button" + kataIndex;
+    inputCell.appendChild(inputElement);
+    row.appendChild(inputCell);
+    let difficultyCell = document.createElement("td");
+    difficultyCell.textContent = katas[kataIndex].obtenerDificultad();
+    row.appendChild(difficultyCell);
+    tbody.appendChild(row);
   }
   table.appendChild(tbody);
+  div_result.appendChild(table);
+}
 
-  div.appendChild(table);
-
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let table = crearTable();
+  let katas = catologo.obtenerListaKatasOrdTituloAsc();
+  llenarTable(katas, table);
   agregarEscuchadoresBotonesLeer();
 });
 
 
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  div_results_search.innerHTML = ""; 
-  let table = document.createElement("table");
-  let thead = document.createElement("thead");
-  let tbody = document.createElement("tbody");
-  let headerRow = document.createElement("tr");
-  ["Título", "Descripción", "Acción", "Dificultad"].forEach(headerText => {
-      let th = document.createElement("th");
-      th.textContent = headerText;
-      headerRow.appendChild(th);
-  });
-  thead.appendChild(headerRow);
-  table.appendChild(thead);
-
+  let table = crearTable();
   const terminoDeBusqueda = document.querySelector("#search_box").value;
   let katas = catologo.buscarKata(terminoDeBusqueda);
-  for(let kataIndex in katas) {
-      let row = document.createElement("tr");
-      let titleCell = document.createElement("td");
-      titleCell.textContent = katas[kataIndex].obtenerTitulo();
-      row.appendChild(titleCell);
-      let descriptionCell = document.createElement("td");
-      descriptionCell.textContent = katas[kataIndex].obtenerDescripcion();
-      row.appendChild(descriptionCell);
-      let inputCell = document.createElement("td");
-      let inputElement = document.createElement("input");
-      inputElement.type = "submit";
-      inputElement.value = "Leer mas";
-      inputElement.id = "detalle_button" + kataIndex;
-      inputElement.className = "see_more";
-      inputCell.appendChild(inputElement);
-      row.appendChild(inputCell);
-      let difficultyCell = document.createElement("td");
-      difficultyCell.textContent = katas[kataIndex].obtenerDificultad();
-      row.appendChild(difficultyCell);
-      tbody.appendChild(row);
-  }
-  table.appendChild(tbody);
-  div_results_search.appendChild(table);
+  llenarTable(katas, table);
   agregarEscuchadoresBotonesLeer();
 });
 
@@ -131,11 +99,8 @@ function agregarEscuchadoresBotonesLeer() {
   let buttons = document.querySelectorAll('[id^="detalle_button"]');
   buttons.forEach(button => {
     button.addEventListener('click', function() {
-
       botonMostrarCatalogo.style.visibility = "hidden";
-
       let index = this.id.replace('detalle_button', '');
-      
       window.location.href = "./detalleKata.html?indexKata="+index;
     });
   });
