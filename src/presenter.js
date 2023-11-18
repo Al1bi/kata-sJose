@@ -1,7 +1,6 @@
 import Catologo from "./Catalogo.js";
 import Kata from "./Kata.js";
 
-const form = document.querySelector("#request");
 const searchForm = document.querySelector("#search_form");
 const div_result = document.querySelector("#show_result");
 
@@ -31,6 +30,15 @@ catologo.agregarKata(new Kata("PowerSet", "Given a set of distinct integers, gen
 catologo.agregarKata(new Kata("MaxFlowNetwork", "Given a graph representing a flow network, implement the Ford-Fulkerson algorithm to compute the maximum flow.", 5));
 
 
+window.onload = llenarCatologo(); 
+
+function llenarCatologo() { 
+  console.log("joselito"); 
+  let table = crearTable();
+  let katas = catologo.obtenerListaKatasOrdTituloAsc();
+  llenarTable(katas, table);
+  agregarEscuchadoresBotonesLeer();
+}
 
 function crearTable(){
   div_result.innerHTML = " ";
@@ -75,15 +83,6 @@ function llenarTable(katas, table){
   table.appendChild(tbody);
   div_result.appendChild(table);
 }
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  let table = crearTable();
-  let katas = catologo.obtenerListaKatasOrdTituloAsc();
-  llenarTable(katas, table);
-  agregarEscuchadoresBotonesLeer();
-});
-
 
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
