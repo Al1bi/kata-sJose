@@ -8,6 +8,10 @@ describe("Presenter", () => {
     cy.visit("/");
     cy.get("#show_result").find("table tbody tr").its('length').should('be.gt', 0);
     });
+  it("Se debería mostrar una barra de busqueda en la pagina de inicio",() =>{
+    cy.visit("/");
+    cy.get("#search_bar").find("input").should("exist");
+  });
   
 
 
