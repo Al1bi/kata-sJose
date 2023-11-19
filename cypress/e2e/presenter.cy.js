@@ -32,15 +32,29 @@ describe("Presenter", () => {
     cy.get("#show_result").find("td").eq(0).should("contain", "BalancedBrackets");
     cy.get("#show_result").find("td").eq(1).should("contain", "Given a string containing characters '{', '}', '(', ')', '[', and ']', determine if the input string's brackets are balanced.");
     cy.get("#show_result").find("td").eq(3).should("contain", "2");
-
   });
   
   it("Se deberia abrir una nueva pagina cuando se presiona el boton leer mas", () => {
     cy.visit("/");
     cy.get("#detalle_button0").click();
-    cy.url().should("include", "/detalleKata.html?indexKata=0")
+    cy.url().should("include", "/detalleKata.html?indexKata=0");
   });
 
+  it("Se deberia abrir una nueva pagina cuando se presiona el boton leer mas en la kata FizzBuzz y se deberia visualizar datos de esa kata ", () => {
+    cy.visit("/");
+    cy.get("#detalle_button0").click();
+    cy.url().should("include", "/detalleKata.html?indexKata=0");
+    cy.get("#titulo_detalle_div").should("contain", "FizzBuzz");
+    cy.get("#descripcion_detalle_div").should("contain", "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.");
+  });
+
+
+  it("Deberia existir un boton de ir atras en la pagina detalle kata ", () => {
+    cy.visit("/");
+    cy.get("#detalle_button0").click();
+    cy.url().should("include", "/detalleKata.html?indexKata=0");
+    cy.get("#volver_atras").should("exist");
+  });
   
 
 
