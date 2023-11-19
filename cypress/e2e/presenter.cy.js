@@ -63,4 +63,17 @@ describe("Presenter", () => {
       expect(estilo.marginLeft).to.equal(estilo.marginRight);
     });
   });
+
+  it("la barra de busqueda deberia estar al medio", () => {
+    cy.visit("/");
+    cy.get("#search_bar").next().should('have.class','show_catalog_container');
+    cy.get("#search_bar").should($barra => {
+      const estilo = window.getComputedStyle($barra[0]);
+      expect(estilo.marginLeft).to.equal(estilo.marginRight);
+    });
+  });
+  
+  
+
+
 });
