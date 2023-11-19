@@ -5,8 +5,6 @@ import Singleton from "./Singleton.js";
 const searchForm = document.querySelector("#search_form");
 const div_result = document.querySelector("#show_result");
 
-let botonMostrarCatalogo = document.querySelector("#enviar_button");
-
 let catologo = new Catologo(); 
 catologo.katas = Singleton.getInstance().katas;
 
@@ -76,9 +74,9 @@ searchForm.addEventListener("submit", (event) => {
 
 function agregarEscuchadoresBotonesLeer() {
   let buttons = document.querySelectorAll('[id^="detalle_button"]');
+  console.log(buttons);
   buttons.forEach(button => {
     button.addEventListener('click', function() {
-      botonMostrarCatalogo.style.visibility = "hidden";
       let index = this.id.replace('detalle_button', '');
       window.location.href = "./detalleKata.html?indexKata="+index;
     });
