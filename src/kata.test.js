@@ -1,5 +1,6 @@
 import Catologo from "./Catalogo.js";
 import Kata from "./Kata.js";
+import Singleton from "./Singleton.js";
 
 describe("Katas Individuales ", () => {
   it("Deberia obtener el titulo de una kata", () => {
@@ -139,6 +140,11 @@ describe("Katas Individuales ", () => {
     catologo.agregarKata(new Kata("Maquinolas")); 
 
     expect(catologo.obtenerListaTitulosOrdenadaAsc()).toEqual([ "Borisaurio", "Joselito", "Maquinolas"]);
+  });
+
+  it("Deberia obtener una lista de una kata por defecto", () => {
+    let katas = Singleton.getInstance();
+    expect(katas).toEqual([{"titulo": "FizzBuzz", "descripcion": "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.", "dificultad": 1}]);
   });
 });
 
