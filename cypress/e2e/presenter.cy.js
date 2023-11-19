@@ -12,6 +12,13 @@ describe("Presenter", () => {
     cy.visit("/");
     cy.get("#search_bar").find("input").should("exist");
   });
+  it("Se deberia mostrar una tabla cuando se ingresa una consulta en la barra de busqueda", () =>
+  {
+    cy.visit("/");
+    cy.get("#search_bar").find("input").type("Fizz{Enter}");
+    cy.get("#show_result").find("table tbody tr").its('length').should('be.gt', 0);
+  }
+  );
   
 
 
