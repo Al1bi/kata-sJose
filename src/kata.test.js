@@ -143,8 +143,12 @@ describe("Katas Individuales ", () => {
   });
 
   it("Deberia obtener una lista de una kata por defecto", () => {
-    let katas = Singleton.getInstance();
-    expect(katas).toEqual([{"titulo": "FizzBuzz", "descripcion": "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.", "dificultad": 1}]);
+    let catalogo = Singleton.getInstance();
+    expect(catalogo.katas[0]).toEqual({"descripcion": "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.", "dificultad": 1, "titulo": "FizzBuzz"});
+  });
+  it("Deberia obtener una lista de dos katas por defecto", () => {
+    let catalogo = Singleton.getInstance();
+    expect(catalogo.katas[0]).toEqual({"descripcion": "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.", "dificultad": 1, "titulo": "FizzBuzz"}, {"descripcion": "PrimeFactors", "titulo":"Develop a function that computes and returns the prime factorization of a given number in the form of an array of numbers.", "dificultad":3});
   });
 });
 
