@@ -64,12 +64,20 @@ describe("Presenter", () => {
     });
   });
 
-  it("la barra de busqueda deberia estar al medio", () => {
+  it("la barra de busqueda deberia estar al medion y encima de la tabla de catalogo", () => {
     cy.visit("/");
-    cy.get("#search_bar").next().should('have.class','show_catalog_container');
+    cy.get("#search_bar").next().should('have.class','catalog_title_container');
     cy.get("#search_bar").should($barra => {
       const estilo = window.getComputedStyle($barra[0]);
       expect(estilo.marginLeft).to.equal(estilo.marginRight);
+    });
+  });
+
+  it("deberia existir una imagen de fondo ", () => {
+    cy.visit("/");
+    cy.get("#search_bar").should($barra => {
+      const estilo = window.getComputedStyle($barra[0]);
+      expect(estilo.backgroundImage).not.to.equal('none');
     });
   });
   

@@ -66,14 +66,15 @@ table {
 }
 body{
 	width: 100%;
-	height: 100%;
+	height: 95vh;
 	background-color: #FFF7EA;
 }
 
 header
 {
+	position: relative;
 	width: 100%;
-	height: 10vh;
+	height: 8%;
 }
 .header_container{
 	height: 100%;
@@ -128,38 +129,46 @@ nav{
 }
 main
 {
-	height: 90vh;
+	height: 100%;
 	width: 100%;
 }
 
 .features_container{
+	position: relative;
 	width: 100%;
-	height: 100%;
+	height: 95%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 }
 
 
 
 .show_catalog_container{
+	position: relative;
 	width: 100%;
-	height: 90%;
+	height: 36%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	overflow: auto;
 }
 
 #search_bar{
+	position: relative;
 	display: flex;
 	width: 100%;
-	height: 10%;
+	height: 60%;
+	z-index: 1;
+	background-image: url('/resources/katacloud_ofi.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 #request_form{
 	width: 100%;
-	height: 30%;
+	height: 40%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -191,13 +200,12 @@ main
 #show_result_search,
 #show_result
 {
-	width: 100%;
+	width: 80%;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	position: relative;
-	overflow: auto;
 }
 #show_result_search table, 
 #show_result table {
@@ -209,12 +217,15 @@ main
 }
 
 
+
+
 #show_result_search th, 
 #show_result_search td,
 #show_result th, 
 #show_result td {
-	padding: 5px;
+	padding: 20px;
     vertical-align: middle;   
+	text-align: center;
     border-bottom: 1px solid var(--secondaryColor);
 }
 #show_result_search th,
@@ -227,6 +238,7 @@ main
 #show_result_search tbody tr:hover,
 #show_result tbody tr:hover {
     background-color:#5b8097;
+	color: white;
 }
 
 #show_result_search tbody tr:last-child td,
@@ -247,7 +259,7 @@ main
 	justify-content: center;
 }
 #search_form{
-	height: 20%;
+	height: 5%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -258,13 +270,34 @@ main
 #search_form p {
     font-size: 18px;
     font-family: var(--mainFont);
-    padding: 20px;
-}
+    padding: 15px;
+	color: white;
+	background-color: black;
+	height: 100%;
+	text-align: center;
 
+}
 #search_box {
     width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid var(--mainColor);
+	height: 100%;
+    padding: 15px;
+    border: 0px solid var(--mainColor);
     font-size: 16px;
+	font-family: var(--mainFont);
+}
+
+.catalog_title_container{
+	position: relative;
+	height: 7%;
+	padding-top: 1rem;
+	font-size: 30px;
+	font-weight: bold;
+	color: var(--mainColor);
+	width: 100%;
+	font-family: var(--mainFont);
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
