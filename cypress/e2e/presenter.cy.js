@@ -55,7 +55,12 @@ describe("Presenter", () => {
     cy.url().should("include", "/detalleKata.html?indexKata=0");
     cy.get("#volver_atras").should("exist");
   });
-  
 
-
+  it("la tabla de katas deberia estar al centro de la pagina", () => {
+    cy.visit("/");
+    cy.get("#show_result").should($tabla => {
+      const estilo = window.getComputedStyle($tabla[0]);
+      expect(estilo.marginLeft).to.equal(estilo.marginRight);
+    });
+  });
 });
