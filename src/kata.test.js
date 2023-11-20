@@ -142,10 +142,20 @@ describe("Katas Individuales ", () => {
     expect(catologo.obtenerListaTitulosOrdenadaAsc()).toEqual([ "Borisaurio", "Joselito", "Maquinolas"]);
   });
 
+  it("Deberia obtener una lista de katas ordenadas por titulo  ascendentemente", () => {
+    let catalogo = new Catologo();
+    catalogo.agregarKata(new Kata("Joselito")); 
+    catalogo.agregarKata(new Kata("Borisaurio")); 
+    catalogo.agregarKata(new Kata("Maquinolas"));
+
+    expect(catalogo.obtenerListaKatasOrdTituloAsc()).toEqual([new Kata("Borisaurio"), new Kata("Joselito"), new Kata("Maquinolas")])
+  });
+
   it("Deberia obtener una lista de una kata por defecto", () => {
     let catalogo = Singleton.getInstance();
     expect(catalogo.katas[0]).toEqual({"descripcion": "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.", "dificultad": 1, "titulo": "FizzBuzz"});
   });
+
   it("Deberia obtener una lista de dos katas por defecto", () => {
     let catalogo = Singleton.getInstance();
     expect(catalogo.katas[0]).toEqual({"descripcion": "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.", "dificultad": 1, "titulo": "FizzBuzz"}, {"descripcion": "PrimeFactors", "titulo":"Develop a function that computes and returns the prime factorization of a given number in the form of an array of numbers.", "dificultad":3});
