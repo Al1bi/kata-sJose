@@ -40,7 +40,9 @@ export default class Catologo {
   }
 
   obtenerKatasOrdenadasPorDificultadAsc(){
-    return [new Kata("Joselito", "", 1)]
+    let comparadorDificultad = (kata1, kata2) => kata1.obtenerDificultad() - kata2.obtenerDificultad(); 
+    this.ordenarKatasPorUnAtributo(comparadorDificultad)
+    return this.katas; 
   }
 
   buscarTitulo(terminoBusqueda) { 
