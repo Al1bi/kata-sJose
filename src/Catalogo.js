@@ -81,4 +81,12 @@ export default class Catologo {
     });
     return coincidencias;
   }
+
+  buscarKataPorCategoria(categoria) {
+    let listaEsperada = []; 
+    listaEsperada.push(new Kata(0,"Jose", "Katita", 1, 'Fundamentos'));
+    listaEsperada.push(new Kata(1,"Kata 2", "Katita", 1, 'Fundamentos'));
+    listaEsperada.push(new Kata(2,"Kata 3", "Katita", 1, 'Fundamentos'));
+    return listaEsperada; 
+  }
 }

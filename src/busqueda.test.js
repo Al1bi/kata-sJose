@@ -94,4 +94,18 @@ describe("Busqueda de Katas", () => {
     expect(catologo.buscarKataPorDificultad(1)).toEqual(catologoEsperado.obtenerListaKatas());
   });
 
+  it("Deberia devolver una lista katas que pertenezcan a la categoria Fundamentos", () => {
+    let catologoEsperado = new Catologo(); 
+    let catologo = new Catologo();
+    catologoEsperado.agregarKata(new Kata(0,"Jose", "Katita", 1, 'Fundamentos'));
+    catologoEsperado.agregarKata(new Kata(1,"Kata 2", "Katita", 1, 'Fundamentos'));
+    catologoEsperado.agregarKata(new Kata(2,"Kata 3", "Katita", 1, 'Fundamentos'));
+    catologo.agregarKata(new Kata(0,"Jose", "Katita", 1, 'Fundamentos'));
+    catologo.agregarKata(new Kata(1,"Kata 2", "Katita", 1, 'Fundamentos'));
+    catologo.agregarKata(new Kata(2,"Kata 3", "Katita", 1, 'Fundamentos'));
+    catologo.agregarKata(new Kata(3,"Kata 2", "Katita", 2));
+    catologo.agregarKata(new Kata(4,"Kata 3", "Katita", 3));
+    expect(catologo.buscarKataPorCategoria('Fundamentos')).toEqual(catologoEsperado.obtenerListaKatas());
+  });
+
 });
