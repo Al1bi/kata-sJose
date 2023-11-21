@@ -1,5 +1,6 @@
 export default class Kata{
-  constructor(titulo, descripcion, dificultad){
+  constructor(id, titulo, descripcion, dificultad){
+    this.id = id;
     this.descripcion = descripcion;
     this.titulo = titulo;
     this.dificultad = dificultad;

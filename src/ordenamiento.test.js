@@ -5,27 +5,27 @@ describe("Ordenamiento de katas", () => {
   it("Deberia obtener una lista de titulos de katas de una sola ordenada ascendentemente", () => {
     
     let catologo = new Catologo(); 
-    catologo.agregarKata(new Kata("Denilson")); 
+    catologo.agregarKata(new Kata(0, "Denilson")); 
     expect(catologo.obtenerListaTitulosOrdenadaAsc()).toEqual(["Denilson"]);
   });
   
   it("Deberia obtener una lista de titulos de katas de varias katas ordenadas ascendentemente", () => {
     
     let catologo = new Catologo(); 
-    catologo.agregarKata(new Kata("Joselito")); 
-    catologo.agregarKata(new Kata("Borisaurio")); 
-    catologo.agregarKata(new Kata("Maquinolas")); 
+    catologo.agregarKata(new Kata(0,"Joselito")); 
+    catologo.agregarKata(new Kata(1,"Borisaurio")); 
+    catologo.agregarKata(new Kata(2,"Maquinolas")); 
 
     expect(catologo.obtenerListaTitulosOrdenadaAsc()).toEqual([ "Borisaurio", "Joselito", "Maquinolas"]);
   });
 
   it("Deberia obtener una lista de katas ordenadas por titulo  ascendentemente", () => {
     let catalogo = new Catologo();
-    catalogo.agregarKata(new Kata("Joselito")); 
-    catalogo.agregarKata(new Kata("Borisaurio")); 
-    catalogo.agregarKata(new Kata("Maquinolas"));
+    catalogo.agregarKata(new Kata(0,"Joselito")); 
+    catalogo.agregarKata(new Kata(1,"Borisaurio")); 
+    catalogo.agregarKata(new Kata(2,"Maquinolas"));
 
-    expect(catalogo.obtenerListaKatasOrdTituloAsc()).toEqual([new Kata("Borisaurio"), new Kata("Joselito"), new Kata("Maquinolas")]);
+    expect(catalogo.obtenerListaKatasOrdTituloAsc()).toEqual([new Kata(1,"Borisaurio"), new Kata(0,"Joselito"), new Kata(2,"Maquinolas")]);
   });
 
   it("Deberia obtener una lista de una sola kata ordenada por la dificultad", () => {

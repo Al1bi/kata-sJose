@@ -1,5 +1,4 @@
 import Catologo from "./Catalogo.js";
-import Kata from "./Kata.js";
 import Singleton from "./Singleton.js";
 
 const searchForm = document.querySelector("#search_form");
