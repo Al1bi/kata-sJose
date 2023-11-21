@@ -24,7 +24,7 @@ export default class Kata{
   }
 
   obtenerCategoria() {
-    return "Fundamentos"; 
+    return this.categoria; 
   }
 
 };
