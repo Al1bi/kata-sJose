@@ -2,7 +2,7 @@ import Catologo from "./Catalogo.js";
 import Singleton from "./Singleton.js";
 
 const searchForm = document.querySelector("#search_form");
-const orderForm = document.querySelector("#order_form")
+const filterForm = document.querySelector("#filter_form")
 const div_result = document.querySelector("#show_result");
 
 let catologo = new Catologo(); 
@@ -23,7 +23,7 @@ function crearTable(){
   let table = document.createElement("table");
   let thead = document.createElement("thead");
   let headerRow = document.createElement("tr");
-  ["Título", "Descripción", "Ver más", "Dificultad"].forEach(headerText => {
+  ["Título", "Descripción",  "Ver más", "Dificultad", "Categoria"].forEach(headerText => {
       let th = document.createElement("th");
       th.textContent = headerText;
       headerRow.appendChild(th);
@@ -56,6 +56,9 @@ function llenarTable(katas, table){
     let difficultyCell = document.createElement("td");
     difficultyCell.textContent = katas[kataIndex].obtenerDificultad();
     row.appendChild(difficultyCell);
+    let categoryCell = document.createElement("td"); 
+    categoryCell.textContent = katas[kataIndex].obtenerCategoria(); 
+    row.appendChild(categoryCell)
     tbody.appendChild(row);
   }
   table.appendChild(tbody);
@@ -71,13 +74,17 @@ searchForm.addEventListener("submit", (event) => {
   agregarEscuchadoresBotonesLeer();
 });
 
-orderForm.addEventListener("submit", (event) => {
+filterForm.addEventListener("submit", (event) => {
   event.preventDefault();
   let table = crearTable(); 
   const atributo = document.querySelector("#order_attribute").value; 
+  const categoria = document.querySelector("#category_attribute").value;
   if(atributo === "DiffAsc") {
     katas = catologo.obtenerKatasOrdenadasPorDificultadAsc(); 
   }
+  if(categoria !== "") {
+    katas = catologo.buscarKataPorCategoria(categoria); 
+  } 
   llenarTable(katas, table); 
   agregarEscuchadoresBotonesLeer();
 }); 
