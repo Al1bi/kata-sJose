@@ -51,5 +51,10 @@ describe("Katas Individuales ", () => {
     expect(catalogo.katas[0]).toEqual(new Kata(0,"FizzBuzz", "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.", 1), new Kata(1,"PrimeFactors", "Develop a function that computes and returns the prime factorization of a given number in the form of an array of numbers.", 3));
   });
 
+  it("Deberia obtener el id de una kata", () => {
+    let kata = new Kata(0,"Katita"); 
+    expect(kata.obtenerId()).toEqual(0);
+  });
+
 });
 

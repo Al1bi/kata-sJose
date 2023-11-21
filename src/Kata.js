@@ -16,4 +16,9 @@ export default class Kata{
   {
     return this.dificultad;
   }
+
+  obtenerId(){
+    return this.id;
+  }
+
 };
