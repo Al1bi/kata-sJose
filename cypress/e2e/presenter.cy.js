@@ -37,5 +37,12 @@ describe("Catalogo", () => {
     cy.get("#show_result").find("td").eq(3).should("contain", "1");
   });
 
+  it("Se deberia mostrar una kata que pertenece a la categoria Fundamentos", () =>
+  {
+    cy.visit("/");
+    cy.get("#category_attribute").select("Fundamentos");
+    cy.get("#filter_button").click();
+    cy.get("#show_result").find("td").eq(4).should("contain", "Fundamentos");
+  });
 
 });

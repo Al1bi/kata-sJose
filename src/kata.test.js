@@ -55,6 +55,11 @@ describe("Katas Individuales ", () => {
     let kata = new Kata(0,"Katita"); 
     expect(kata.obtenerId()).toEqual(0);
   });
+  
+  it("Deberia obtener la categoria Fundamentos de una kata", () => {
+    let kata = new Kata(0,"Katita", "Idk", 1, "Fundamentos"); 
+    expect(kata.obtenerCategoria()).toEqual("Fundamentos");
+  });
 
 });
 
