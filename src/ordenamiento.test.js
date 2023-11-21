@@ -27,4 +27,11 @@ describe("Ordenamiento de katas", () => {
 
     expect(catalogo.obtenerListaKatasOrdTituloAsc()).toEqual([new Kata("Borisaurio"), new Kata("Joselito"), new Kata("Maquinolas")]);
   });
+
+  it("Deberia obtener una lista de una sola kata ordenada por la dificultad", () => {
+    let catalogo = new Catologo();
+    catalogo.agregarKata(new Kata("Joselito", "", 1)); 
+
+    expect(catalogo.obtenerKatasOrdenadasPorDificultadAsc()).toEqual([new Kata("Joselito", "", 1)]);
+  });
 });

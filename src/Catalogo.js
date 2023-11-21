@@ -1,3 +1,4 @@
+import Kata from "./Kata";
 
 export default class Catologo {
 
@@ -36,6 +37,10 @@ export default class Catologo {
   obtenerListaTitulosOrdenadaAsc(){
     this.ordenarKatasPorTituloAsc();
     return this.obtenerListaTitulos();
+  }
+
+  obtenerKatasOrdenadasPorDificultadAsc(){
+    return [new Kata("Joselito", "", 1)]
   }
 
   buscarTitulo(terminoBusqueda) { 
