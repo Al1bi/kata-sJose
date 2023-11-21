@@ -3,6 +3,7 @@ import Kata from "./Kata.js";
 import Singleton from "./Singleton.js";
 
 const searchForm = document.querySelector("#search_form");
+const orderForm = document.querySelector("#order_form")
 const div_result = document.querySelector("#show_result");
 
 let catologo = new Catologo(); 
@@ -71,6 +72,16 @@ searchForm.addEventListener("submit", (event) => {
   agregarEscuchadoresBotonesLeer();
 });
 
+orderForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let table = crearTable(); 
+  const atributo = document.querySelector("#order_attribute").value; 
+  if(atributo === "DiffAsc") {
+    katas = catologo.obtenerKatasOrdenadasPorDificultadAsc(); 
+  }
+  llenarTable(katas, table); 
+  agregarEscuchadoresBotonesLeer();
+}); 
 
 function agregarEscuchadoresBotonesLeer() {
   let buttons = document.querySelectorAll('[id^="detalle_button"]');

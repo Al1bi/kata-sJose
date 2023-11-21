@@ -22,13 +22,13 @@ describe("Presenter", () => {
   it("Se deberia mostrar una tabla cuando se ingresa una consulta en la barra de busqueda", () =>
   {
     cy.visit("/");
-    cy.get("#search_bar").find("input").type("Fizz{Enter}");
+    cy.get("#search_form").find("input").type("Fizz{Enter}");
     cy.get("#show_result").find("table tbody tr").its('length').should('be.gt', 0);
   });
 
   it("Se deberia mostrar el resultado Balanced Brackets al momento de Buscar Balanced en la barra de busqueda", () =>{
     cy.visit("/");
-    cy.get("#search_bar").find("input").type("BalancedBrackets{Enter}");
+    cy.get("#search_form").find("input").type("BalancedBrackets{Enter}");
     cy.get("#show_result").find("td").eq(0).should("contain", "BalancedBrackets");
     cy.get("#show_result").find("td").eq(1).should("contain", "Given a string containing characters '{', '}', '(', ')', '[', and ']', determine if the input string's brackets are balanced.");
     cy.get("#show_result").find("td").eq(3).should("contain", "2");
@@ -81,7 +81,13 @@ describe("Presenter", () => {
     });
   });
   
-  
+  it("Se deberia mostrar una tabla cuando se ordena por dificultad ascendente", () =>
+  {
+    cy.visit("/");
+    cy.get("#order_attribute").select("Dificultad Asc");
+    cy.get("#filter_button").click();
+    cy.get("#show_result").find("table tbody tr").its('length').should('be.gt', 0);
+  });
 
 
 });

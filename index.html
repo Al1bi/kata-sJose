@@ -31,6 +31,16 @@
           <p>Buscar</p>
           <input type="text" value="" id="search_box" placeholder="Busca Algo"/>
         </form>
+        <div>
+          <form id="order_form">
+            <label for="Atributos">Ordenar por:</label>
+            <select name="Atributos" id="order_attribute">
+                <option value="DiffAsc">Dificultad Asc</option>
+            </select>
+            <br><br>
+            <input type="submit" value="Buscar" id="filter_button">
+          </form>
+        </div>
       </div>
       <div class="catalog_title_container">
         <h1>
@@ -38,9 +48,8 @@
         </h1>
       </div>
       <div class="show_catalog_container">
-        <div id="show_result">
-        </div>
-      </div>      
+        <div id="show_result"></div>
+      </div>   
     </div>
   </main>
   <footer>
