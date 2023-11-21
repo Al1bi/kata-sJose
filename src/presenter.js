@@ -50,7 +50,7 @@ function llenarTable(katas, table){
     inputElement.type = "submit";
     inputElement.className = "see_more";
     inputElement.value = "Leer mas";
-    inputElement.id = "detalle_button" + kataIndex;
+    inputElement.id = "detalle_button" + katas[kataIndex].obtenerId();
     inputCell.appendChild(inputElement);
     row.appendChild(inputCell);
     let difficultyCell = document.createElement("td");
