@@ -71,5 +71,10 @@ describe("Katas Individuales ", () => {
     expect(kata.obtenerUrlSolucion()).toEqual("soy url");
   });
 
+  it("Deberia verificar si la kata tiene solucion en una kata sin solucion", () => {
+    let kata = new Kata(0,"Katita", "Idk", 1, "Algoritmos", ""); 
+    expect(kata.tieneSolucion()).toEqual(false);
+  });
+
 });
 

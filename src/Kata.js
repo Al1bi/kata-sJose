@@ -32,4 +32,8 @@ export default class Kata{
     return this.urlSolucion;
   }
 
+  tieneSolucion(){
+    return false;
+  }
+
 };
