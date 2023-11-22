@@ -33,7 +33,7 @@ export default class Kata{
   }
 
   tieneSolucion(){
-    if(this.urlSolucion == "") return false;
+    if(this.urlSolucion == "" || this.urlSolucion == undefined) return false;
     return true;
   }
 
