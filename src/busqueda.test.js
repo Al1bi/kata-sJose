@@ -119,4 +119,12 @@ describe("Busqueda de Katas", () => {
     catologo.agregarKata(new Kata(4,"Kata 3", "Katita", 3));
     expect(catologo.buscarKataPorCategoria('Algoritmos')).toEqual(catologoEsperado.obtenerListaKatas());
   });
+
+  it("Deberia devolver una lista vacia de un catalogo de katas sin solucion", () => {
+    let catologo = new Catologo();
+    catologo.agregarKata(new Kata(0,"Jose", "Katita", 1, 'Fundamentos'));
+    catologo.agregarKata(new Kata(1,"Kata 2", "Katita", 1, 'Fundamentos'));
+    expect(catologo.buscarKatasConSolucion()).toEqual([]);
+  });
+
 });

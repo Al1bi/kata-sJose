@@ -1,4 +1,3 @@
-import Kata from "./Kata";
 
 export default class Catologo {
 
@@ -90,5 +89,9 @@ export default class Catologo {
       }
     });
     return coincidencias; 
+  }
+
+  buscarKatasConSolucion(){
+    return [];
   }
 }
