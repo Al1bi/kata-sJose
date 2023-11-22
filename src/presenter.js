@@ -5,6 +5,7 @@ const searchForm = document.querySelector("#search_form");
 const filterForm = document.querySelector("#filter_form");
 const difficultyForm = document.querySelector("#difficulty_form");
 const div_result = document.querySelector("#show_result");
+const button_Solution =  document.querySelector("#filter_with_solution");
 
 let catologo = new Catologo(); 
 catologo.katas = Singleton.getInstance().katas;
@@ -94,6 +95,7 @@ filterForm.addEventListener("submit", (event) => {
   agregarEscuchadoresBotonesLeer();
 }); 
 
+<<<<<<< HEAD
 difficultyForm.addEventListener("submit", (event) => {
   event.preventDefault();
   let table = crearTable();
@@ -103,6 +105,15 @@ difficultyForm.addEventListener("submit", (event) => {
   agregarEscuchadoresBotonesLeer();
 }); 
 
+=======
+button_Solution.addEventListener("click", (event) =>{
+  event.preventDefault();
+  let table = crearTable();
+  let katas = catologo.buscarKatasConSolucion();
+  llenarTable(katas, table);
+  agregarEscuchadoresBotonesLeer();
+});
+>>>>>>> 9af5eaa (Se muestran las katas con solucion)
 
 function agregarEscuchadoresBotonesLeer() {
   let buttons = document.querySelectorAll('[id^="detalle_button"]');
@@ -114,3 +125,4 @@ function agregarEscuchadoresBotonesLeer() {
     });
   });
 }
+
