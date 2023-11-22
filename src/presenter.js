@@ -2,7 +2,8 @@ import Catologo from "./Catalogo.js";
 import Singleton from "./Singleton.js";
 
 const searchForm = document.querySelector("#search_form");
-const filterForm = document.querySelector("#filter_form")
+const filterForm = document.querySelector("#filter_form");
+const difficultyForm = document.querySelector("#difficulty_form");
 const div_result = document.querySelector("#show_result");
 
 let catologo = new Catologo(); 
@@ -84,10 +85,20 @@ filterForm.addEventListener("submit", (event) => {
   }
   if(categoria !== "") {
     katas = catologo.buscarKataPorCategoria(categoria); 
-  } 
+  }
   llenarTable(katas, table); 
   agregarEscuchadoresBotonesLeer();
 }); 
+
+difficultyForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let table = crearTable();
+  const atributo = document.querySelector("#difficulty_attribute").value; 
+  katas = catologo.buscarKataPorDificultad(atributo);
+  llenarTable(katas, table); 
+  agregarEscuchadoresBotonesLeer();
+}); 
+
 
 function agregarEscuchadoresBotonesLeer() {
   let buttons = document.querySelectorAll('[id^="detalle_button"]');

@@ -19,7 +19,6 @@
       <nav>
         <div class="options">
           <a href="/index.html">Home</a>
-          <a href="/busquedaPorDificultad.html">Busqueda por dificultad</a>
       </div>
       </nav>
     </div>
@@ -47,7 +46,24 @@
             </select>
             <input type="submit" value="Buscar" id="filter_button">
           </form>
+
+          <form id="difficulty_form">
+            <br><br>
+              <label for="Atributos">Dificultad:</label>
+              <select id="difficulty_attribute">
+                  <option value="" selected disabled hidden>Selecciona una dificultad</option>
+                  <option value="5">5</option>
+                  <option value="4">4</option>
+                  <option value="3">3</option>
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+              </select>
+              <input type="submit" value="Buscar" id="filter_difficulty_button">
+          </form>
+
         </div>
+        
+
       </div>
       <div class="catalog_title_container">
         <h1>

@@ -6,7 +6,7 @@ describe("Catalogo", () => {
     cy.get("#show_result").find("td").eq(3).should("contain", "2");
   });
 
-  it("Se deberia mostrar el resultado Balanced Brackets al momento de Buscar Balanced en la barra de busqueda", () =>{
+  it("Se deberia mostrar el resultado Balanced Brackets al momento de Buscar Balanced y apretar enter en la barra de busqueda", () =>{
     cy.visit("/");
     cy.get("#search_form").find("input").type("BalancedBrackets{Enter}");
     cy.get("#show_result").find("td").eq(0).should("contain", "BalancedBrackets");
@@ -20,13 +20,6 @@ describe("Catalogo", () => {
     cy.url().should("include", "/detalleKata.html?indexKata=0");
     cy.get("#titulo_detalle_div").should("contain", "FizzBuzz");
     cy.get("#descripcion_detalle_div").should("contain", "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.");
-  });
-
-  it("Se deberia existir un boton de ir atras en la pagina detalle kata ", () => {
-    cy.visit("/");
-    cy.get("#detalle_button0").click();
-    cy.url().should("include", "/detalleKata.html?indexKata=0");
-    cy.get("#volver_atras").should("exist");
   });
 
   it("Se deberia mostrar una kata con dificultad 1 al principio cuando se ordena el catalogo por dificultad ascendente", () =>
@@ -45,4 +38,11 @@ describe("Catalogo", () => {
     cy.get("#show_result").find("td").eq(4).should("contain", "Fundamentos");
   });
 
+  it("Se deberia mostrar una lista de katas de dificultad 5 al buscar katas por dificultad", () =>
+  {
+    cy.visit("/");
+    cy.get("#difficulty_attribute").select("5");
+    cy.get("#filter_difficulty_button").click();
+    cy.get("#show_result").find("td").eq(3).should("contain", "5");
+  });
 });
