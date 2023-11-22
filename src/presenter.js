@@ -95,7 +95,6 @@ filterForm.addEventListener("submit", (event) => {
   agregarEscuchadoresBotonesLeer();
 }); 
 
-<<<<<<< HEAD
 difficultyForm.addEventListener("submit", (event) => {
   event.preventDefault();
   let table = crearTable();
@@ -105,7 +104,6 @@ difficultyForm.addEventListener("submit", (event) => {
   agregarEscuchadoresBotonesLeer();
 }); 
 
-=======
 button_Solution.addEventListener("click", (event) =>{
   event.preventDefault();
   let table = crearTable();
@@ -113,7 +111,6 @@ button_Solution.addEventListener("click", (event) =>{
   llenarTable(katas, table);
   agregarEscuchadoresBotonesLeer();
 });
->>>>>>> 9af5eaa (Se muestran las katas con solucion)
 
 function agregarEscuchadoresBotonesLeer() {
   let buttons = document.querySelectorAll('[id^="detalle_button"]');
