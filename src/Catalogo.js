@@ -92,6 +92,12 @@ export default class Catologo {
   }
 
   buscarKatasConSolucion(){
-    return [];
+    let katasConSolucion = [];
+    this.obtenerListaKatas().forEach((kata) =>{
+      if(kata.tieneSolucion()){
+        katasConSolucion.push(kata);
+      }
+    });
+    return katasConSolucion;
   }
 }

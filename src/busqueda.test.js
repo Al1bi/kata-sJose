@@ -127,4 +127,17 @@ describe("Busqueda de Katas", () => {
     expect(catologo.buscarKatasConSolucion()).toEqual([]);
   });
 
+  it("Deberia devolver una lista de katas que si tengan solucion", () => {
+    let catologoEsperado = new Catologo(); 
+    let catologo = new Catologo();
+    catologoEsperado.agregarKata(new Kata(2,"Kata 2", "Katita", 2, 'Algoritmos', true));
+    catologoEsperado.agregarKata(new Kata(4,"Kata Nose", "Katita", 2, 'Algoritmos',true));
+    catologo.agregarKata(new Kata(0,"Jose", "Katita", 1, 'Fundamentos'));
+    catologo.agregarKata(new Kata(1,"Kata 2", "Katita", 1, 'Fundamentos'));
+    catologo.agregarKata(new Kata(2,"Kata 2", "Katita", 2, 'Algoritmos', true));
+    catologo.agregarKata(new Kata(3,"Kata 2", "Katita", 2, 'Algoritmos'));
+    catologo.agregarKata(new Kata(4,"Kata Nose", "Katita", 2, 'Algoritmos',true));
+    expect(catologo.buscarKatasConSolucion()).toEqual(catologoEsperado.obtenerListaKatas());
+  });
+
 });
