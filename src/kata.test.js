@@ -66,5 +66,10 @@ describe("Katas Individuales ", () => {
     expect(kata.obtenerCategoria()).toEqual("Algoritmos");
   });
 
+  it("Deberia obtener el url de la solucion una kata", () => {
+    let kata = new Kata(0,"Katita", "Idk", 1, "Algoritmos", "soy url"); 
+    expect(kata.obtenerUrlSolucion()).toEqual("soy url");
+  });
+
 });
 

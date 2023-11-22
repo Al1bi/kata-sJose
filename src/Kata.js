@@ -1,10 +1,11 @@
 export default class Kata{
-  constructor(id, titulo, descripcion, dificultad, categoria){
+  constructor(id, titulo, descripcion, dificultad, categoria, urlSolucion){
     this.id = id;
     this.descripcion = descripcion;
     this.titulo = titulo;
     this.dificultad = dificultad;
-    this.categoria = categoria
+    this.categoria = categoria;
+    this.urlSolucion = urlSolucion;
   }
 
   obtenerTitulo(){
@@ -25,6 +26,10 @@ export default class Kata{
 
   obtenerCategoria() {
     return this.categoria; 
+  }
+
+  obtenerUrlSolucion(){
+    return this.urlSolucion;
   }
 
 };

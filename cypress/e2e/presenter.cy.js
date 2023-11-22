@@ -45,4 +45,13 @@ describe("Catalogo", () => {
     cy.get("#filter_difficulty_button").click();
     cy.get("#show_result").find("td").eq(3).should("contain", "5");
   });
+
+  it("Se deberia mostrar una kata que tiene una solucion", () =>
+  {
+    cy.visit("/");
+    cy.get("#solution_atribute").select("Fundamentos");
+    cy.get("#filter_with_solution").click();
+    cy.get("#show_result").find("td").eq(5).should("contain", "Si");
+  });
+
 });
