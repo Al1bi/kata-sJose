@@ -49,7 +49,6 @@ describe("Catalogo", () => {
   it("Se deberia mostrar una kata que tiene una solucion", () =>
   {
     cy.visit("/");
-    cy.get("#solution_atribute").select("Fundamentos");
     cy.get("#filter_with_solution").click();
     cy.get("#show_result").find("td").eq(5).should("contain", "Si");
   });

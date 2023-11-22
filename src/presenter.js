@@ -24,7 +24,7 @@ function crearTable(){
   let table = document.createElement("table");
   let thead = document.createElement("thead");
   let headerRow = document.createElement("tr");
-  ["Título", "Descripción",  "Ver más", "Dificultad", "Categoria"].forEach(headerText => {
+  ["Título", "Descripción",  "Ver más", "Dificultad", "Categoria","Solucion Disponible"].forEach(headerText => {
       let th = document.createElement("th");
       th.textContent = headerText;
       headerRow.appendChild(th);
@@ -60,6 +60,10 @@ function llenarTable(katas, table){
     let categoryCell = document.createElement("td"); 
     categoryCell.textContent = katas[kataIndex].obtenerCategoria(); 
     row.appendChild(categoryCell)
+    let solutionCell = document.createElement("td"); 
+    if(katas[kataIndex].tieneSolucion()) solutionCell.textContent = "Si";
+    else solutionCell.textContent = "No";
+    row.appendChild(solutionCell);
     tbody.appendChild(row);
   }
   table.appendChild(tbody);
