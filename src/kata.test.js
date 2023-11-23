@@ -43,12 +43,13 @@ describe("Katas Individuales ", () => {
 
   it("Deberia obtener una lista de una kata por defecto", () => {
     let catalogo = Singleton.getInstance();
-    expect(catalogo.katas[0]).toEqual(new Kata(0,"FizzBuzz", "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.", 1, 'Fundamentos', "tengo solucion"));
+    expect(catalogo.katas[0]).toEqual(new Kata(0,"FizzBuzz", "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.", 1, 'Fundamentos', "tengo solucion", "Joselito"));
   });
 
   it("Deberia obtener una lista de dos katas por defecto", () => {
     let catalogo = Singleton.getInstance();
-    expect(catalogo.katas[0]).toEqual(new Kata(0,"FizzBuzz", "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.", 1, 'Fundamentos', "tengo solucion"), new Kata(1,"PrimeFactors", "Develop a function that computes and returns the prime factorization of a given number in the form of an array of numbers.", 3));
+    expect(catalogo.katas[0]).toEqual(new Kata(0,"FizzBuzz", "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.", 1, 'Fundamentos', "tengo solucion", 'Joselito'), 
+                                      new Kata(1,"PrimeFactors", "Develop a function that computes and returns the prime factorization of a given number in the form of an array of numbers.", 3));
   });
 
   it("Deberia obtener el id de una kata", () => {

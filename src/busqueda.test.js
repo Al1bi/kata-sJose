@@ -160,7 +160,7 @@ describe("Busqueda de Katas", () => {
     expect(catologo.buscarKatasPorAutor("Dios")).toEqual(catologoEsperado.obtenerListaKatas());
   });
 
-  it("Deberia devolver una lista vacia que sean del autor Israel", () => {
+  it("Deberia devolver una lista vacia al buscar katas que sean del autor Israel", () => {
     let catologoEsperado = new Catologo(); 
     let catologo = new Catologo();
     catologo.agregarKata(new Kata(0,"Jose", "Katita", 1, 'Fundamentos', 'url', 'Jose'));
