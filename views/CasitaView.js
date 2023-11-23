@@ -57,6 +57,9 @@ export default class CasitaView {
         <div>
           <input type="submit" value="Mostrar Katas con Solucion" id="filter_with_solution">
         </div>
+        <div>
+        <input type="submit" value="Mostrar Katas no Resueltas" id="filter_no_solved">
+      </div>
       </div>
       <div class="catalog_title_container">
         <h1>

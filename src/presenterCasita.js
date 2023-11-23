@@ -7,6 +7,7 @@ const filterForm = document.querySelector("#filter_form");
 const difficultyForm = document.querySelector("#difficulty_form");
 const div_result = document.querySelector("#show_result");
 const button_Solution =  document.querySelector("#filter_with_solution");
+const button_Solved =  document.querySelector("#filter_no_solved");
 
 let catologo = new Catologo(); 
 catologo.katas = Singleton.getInstance().katas;
@@ -145,6 +146,14 @@ button_Solution.addEventListener("click", (event) =>{
   event.preventDefault();
   let table = crearTable();
   let katas = catologo.buscarKatasConSolucion();
+  llenarTable(katas, table);
+  agregarEscuchadoresBotonesLeer();
+});
+
+button_Solved.addEventListener("click", (event) =>{
+  event.preventDefault();
+  let table = crearTable();
+  let katas = catologo.buscarKatasNoResueltas();
   llenarTable(katas, table);
   agregarEscuchadoresBotonesLeer();
 });

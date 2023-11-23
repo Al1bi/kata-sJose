@@ -114,7 +114,7 @@ describe("Catalogo", () => {
   {
     cy.visit("/");
     cy.get("#filter_no_solved").click();
-    cy.get("#show_result").find("tr").eq(2).find("td").last().find('input[type="checkbox"]').should('no.be.checked');
+    cy.get("#show_result").find("tr").eq(2).find("td").last().find('input[type="checkbox"]').should('not.be.checked');
   });
 
 });
