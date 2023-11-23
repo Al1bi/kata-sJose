@@ -1,4 +1,4 @@
-
+import Kata from "./Kata";
 export default class Catologo {
 
   constructor() {
@@ -99,5 +99,9 @@ export default class Catologo {
       }
     });
     return katasConSolucion;
+  }
+  
+  buscarKatasPorAutor(autorBuscado) {
+    return [new Kata(2,"Kata 2", "Katita", 2, 'Algoritmos', 'url', 'Joselito')];
   }
 }

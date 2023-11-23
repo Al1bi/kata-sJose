@@ -139,5 +139,15 @@ describe("Busqueda de Katas", () => {
     catologo.agregarKata(new Kata(4,"Kata Nose", "Katita", 2, 'Algoritmos',true));
     expect(catologo.buscarKatasConSolucion()).toEqual(catologoEsperado.obtenerListaKatas());
   });
+  
+  it("Deberia devolver una lista de katas que sean del autor Joselito", () => {
+    let catologoEsperado = new Catologo(); 
+    let catologo = new Catologo();
+    catologoEsperado.agregarKata(new Kata(2,"Kata 2", "Katita", 2, 'Algoritmos', 'url', 'Joselito'));
+    catologo.agregarKata(new Kata(0,"Jose", "Katita", 1, 'Fundamentos', 'url', 'Jose'));
+    catologo.agregarKata(new Kata(1,"Kata 2", "Katita", 1, 'Fundamentos', 'url', 'Dios'));
+    catologo.agregarKata(new Kata(2,"Kata 2", "Katita", 2, 'Algoritmos', 'url', 'Joselito'));
+    expect(catologo.buscarKatasPorAutor("Joselito")).toEqual(catologoEsperado.obtenerListaKatas());
+  });
 
 });
