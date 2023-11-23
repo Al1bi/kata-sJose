@@ -91,5 +91,10 @@ describe("Katas Individuales ", () => {
     expect(kata.obtenerAutor()).toEqual("Joselito");
   });
 
+  it("Deberia obtener el autor de una kata que tiene como autor Almejandro", () => {
+    let kata = new Kata(0,"Katita", "Idk", 1, "Algoritmos", "soy url", 'Almejandro'); 
+    expect(kata.obtenerAutor()).toEqual("Almejandro");
+  });
+
 });
 
