@@ -23,6 +23,8 @@ export default class CasitaView {
                 <option value="DiffAsc">Dificultad Asc</option>
                 <option value="CreacionAsc">fecha creacion ascendente</option>
                 <option value="CreacionDsc">fecha creacion descendente</option>
+                <option value="NombreAutorDescendente">Nombre de autor descendente</option>
+                <option value="NombreAutorAscendente">Nombre de autor ascendente</option>
             </select>
             <br><br>
             <label for="Atributos">Categoria:</label>

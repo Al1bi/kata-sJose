@@ -111,6 +111,12 @@ filterForm.addEventListener("submit", (event) => {
   else if(atributo === "CreacionAsc"){
     katas = catologo.ordenarPorFechaDeCreacionAscendentemente();
   }
+  else if(atributo === "NombreAutorDescendente"){
+    katas = catologo.ordenarPorAutorDescendentemente();
+  }
+  else if(atributo === "NombreAutorAscendente"){
+    katas = catologo.ordenarPorAutorAscendentemente();
+  }
   if(categoria !== "") {
     katas = catologo.buscarKataPorCategoria(categoria); 
   }

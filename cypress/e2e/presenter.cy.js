@@ -77,16 +77,16 @@ describe("Catalogo", () => {
 
   it("Se deberia mostrar la kata mas recientemente creada al ordenar descendentemente", () =>{
     cy.visit("/");
-    cy.get("#order_attribute").select("autor descendente");
+    cy.get("#order_attribute").select("NombreAutorDescendente");
     cy.get("#filter_button").click();
-    cy.get("#show_result").find("td").eq(7).should("contain", "name");
+    cy.get("#show_result").find("td").eq(6).should("contain", "Ana");
   });
 
   it("Se deberia mostrar la kata mas antigua al ordenar ascendentemente", () =>{
     cy.visit("/");
-    cy.get("#order_attribute").select("autor ascendente");
+    cy.get("#order_attribute").select("NombreAutorAscendente");
     cy.get("#filter_button").click();
-    cy.get("#show_result").find("td").eq(7).should("contain", "name");
+    cy.get("#show_result").find("td").eq(6).should("contain", "Sofia");
   });
 
 
