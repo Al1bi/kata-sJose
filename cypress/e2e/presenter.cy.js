@@ -94,6 +94,19 @@ describe("Catalogo", () => {
   {
     cy.visit("/");
     cy.get('#show_result').find('tr').eq(2).find('td').last().find('input[type="checkbox"]').check();
-  cy.get("#show_result").find("tr").eq(2).find("td").last().find('input[type="checkbox"]').should('be.checked');
+    cy.get("#show_result").find("tr").eq(2).find("td").last().find('input[type="checkbox"]').should('be.checked');
+  });
+  
+  it("Se deberia visualizar informacion detallada de la kata PalindromeCheck al dar click en el boton leer mas", () => {
+    cy.visit("/");
+    cy.get("#detalle_button5").click();
+    cy.url().should("include", "/detalleKata?indexKata=5");
+    cy.get("#titulo_detalle_div").should("contain", "PalindromeCheck");
+    cy.get("#descripcion_detalle_div").should("contain", "Write a function that checks if a given string (ignoring spaces, punctuation, and capitalization) is a palindrome."); 
+    cy.get("#dificultad_detalle").should("contain", "1"); 
+    cy.get("#categoria_detalle").should("contain", "Patrones"); 
+    cy.get("#autor_detalle").should("contain", "Sofia"); 
+    cy.get("#fecha_creacion_detalle").should("contain", '2017-06-30'); 
+    cy.get("#solucion_disponible_detalle").should("contain", "Si");
   });
 });
