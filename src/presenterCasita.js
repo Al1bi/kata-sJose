@@ -27,9 +27,9 @@ function crearTable(){
   let table = document.createElement("table");
   let thead = document.createElement("thead");
   let headerRow = document.createElement("tr");
-  ["Título", "Descripción",  "Ver más", "Dificultad", "Categoria","Solucion Disponible", "Autor", "Fecha creacion"].forEach(headerText => {
+  ["Título", "Descripción",  "Ver más", "Dificultad", "Categoria","Solucion Disponible", "Autor", "Fecha creacion", "Resuelto"].forEach(headerText => {
       let th = document.createElement("th");
-      th.textContent = headerText;
+      th. textContent = headerText;
       headerRow.appendChild(th);
   });
   thead.appendChild(headerRow);
@@ -74,6 +74,14 @@ function llenarTable(katas, table){
     let creationDate = document.createElement("td"); 
     creationDate.textContent = katas[kataIndex].obtenerFechaCreacion(); 
     row.appendChild(creationDate);
+    let solvedCell = document.createElement("td"); 
+    let checkElement = document.createElement("input");
+    checkElement.type = "checkbox";
+    checkElement.id = "solved_check" + katas[kataIndex].obtenerId();
+    if(katas[kataIndex].estaResuelta()) checkElement.checked = true;
+    else checkElement.checked = false;
+    solvedCell.appendChild(checkElement);
+    row.appendChild(solvedCell);
     tbody.appendChild(row);
   }
   table.appendChild(tbody);
@@ -128,7 +136,7 @@ difficultyForm.addEventListener("submit", (event) => {
   event.preventDefault();
   let table = crearTable();
   const atributo = document.querySelector("#difficulty_attribute").value; 
-  katas = catologo.buscarKataPorDificultad(atributo);
+  let katas = catologo.buscarKataPorDificultad(atributo);
   llenarTable(katas, table); 
   agregarEscuchadoresBotonesLeer();
 }); 

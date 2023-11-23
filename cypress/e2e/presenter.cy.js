@@ -96,9 +96,8 @@ describe("Catalogo", () => {
   it("Se deberia mostrar que se marca una kata como completada", () =>
   {
     cy.visit("/");
-    cy.get("#filter_with_solution").click();
-    cy.get("#show_result").find("td").eq(3).find('input[type="checkbox"]').check();
-    cy.get("#show_result").find("td").eq(3).should('be.checked');
+    cy.get('#show_result').find('tr').eq(2).find('td').last().find('input[type="checkbox"]').check();
+    cy.get("#show_result").find("tr").eq(2).find("td").last().find('input[type="checkbox"]').should('be.checked');
   });
 >>>>>>> f129c08 (Se obtiene el estado(resuelto o no) de una kata)
 });
