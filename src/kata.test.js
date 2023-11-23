@@ -101,12 +101,18 @@ describe("Katas Individuales ", () => {
 
     let fechaDeCreacion = "2000-07-01";
     let kata = new Kata(0, "Kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2000-07-01");
-    expect(kata.otenerFechaCreacion()).toEqual(fechaDeCreacion);
+    expect(kata.obtenerFechaCreacion()).toEqual(fechaDeCreacion);
   });
   it("Deberia devolver la lista de elementos de la fecha", () => {
      let kata = new Kata(0, "Kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2000-07-01");
      var elementos = kata.descomponerFecha()
      expect(elementos).toEqual([2000, 7, 1]); 
+  });
+  it("Deberia comparar entre dos fechas",() => {
+    let kataEjemplo = new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2000-07-01");
+    let kataEjemplo_2 = new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2001-07-01");
+    let resultadoComparacion = kataEjemplo.compararFechaMayor(kataEjemplo_2);
+    expect(resultadoComparacion).toEqual(false);
   });
 
 

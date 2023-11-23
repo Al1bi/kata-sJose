@@ -42,12 +42,15 @@ export default class Kata{
     if(this.urlSolucion == "" || this.urlSolucion == undefined) return false;
     return true;
   }
-  otenerFechaCreacion(){
+  obtenerFechaCreacion(){
     return this.fechaDeCreacion;
   }
   descomponerFecha(){
     let partes = this.fechaDeCreacion.split('-').map(Number);
     return partes;
+  }
+  compararFechaMayor(otraKata){
+    return new Date(this.fechaDeCreacion) > new Date(otraKata.obtenerFechaCreacion());
   }
 
 };
