@@ -61,6 +61,17 @@ export default class CasitaView {
         <input type="submit" value="Mostrar Katas no Resueltas" id="filter_no_solved">
       </div>
       </div>
+      <form id="create_kata_form">
+        <h3>Agregar Nueva Kata</h3>
+        <input type="text" id="new_kata_title" placeholder="Título" required />
+        <textarea id="new_kata_description" placeholder="Descripción" required></textarea>
+        <input type="number" id="new_kata_difficulty" placeholder="Dificultad (1-5)" min="1" max="5" required />
+        <input type="text" id="new_kata_category" placeholder="Categoría" required />
+        <input type="text" id="new_kata_url" placeholder="URL Solución" />
+        <input type="text" id="new_kata_author" placeholder="Autor" required />
+        <input type="date" id="new_kata_creation_date" placeholder="Fecha de Creación" required />
+        <input type="submit" value="Agregar Kata" id="create_kata_button" />
+      </form>
       <div class="catalog_title_container">
         <h1>
           OUR KATALOG

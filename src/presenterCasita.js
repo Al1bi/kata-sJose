@@ -1,8 +1,10 @@
 import Catologo from "./Catalogo.js";
+import Kata from "./Kata.js";
 import Singleton from "./Singleton.js";
 
 const searchForm = document.querySelector("#search_form");
 const serchAutorForm = document.querySelector("#search_autor_form"); 
+const createKataForm = document.querySelector("#create_kata_form"); 
 const filterForm = document.querySelector("#filter_form");
 const difficultyForm = document.querySelector("#difficulty_form");
 const div_result = document.querySelector("#show_result");
@@ -141,6 +143,22 @@ difficultyForm.addEventListener("submit", (event) => {
   llenarTable(katas, table); 
   agregarEscuchadoresBotonesLeer();
 }); 
+
+createKataForm.addEventListener("submit", (event) => {
+  event.preventDefault(); 
+  
+  const titulo = document.getElementById('new_kata_title').value;
+  const descripcion = document.getElementById('new_kata_description').value;
+  const dificultad = parseInt(document.getElementById('new_kata_difficulty').value, 10);
+  const categoria = document.getElementById('new_kata_category').value;
+  const urlSolucion = document.getElementById('new_kata_url').value;
+  const autor = document.getElementById('new_kata_author').value;
+  const fechaDeCreacion = document.getElementById('new_kata_creation_date').value;
+
+  const nuevaKata = new Kata(catologo.obtenerListaKatas().length, titulo, descripcion, dificultad, categoria, urlSolucion, autor, fechaDeCreacion, false); 
+  catologo.agregarKata(nuevaKata); 
+  llenarCatologo(); 
+});
 
 button_Solution.addEventListener("click", (event) =>{
   event.preventDefault();

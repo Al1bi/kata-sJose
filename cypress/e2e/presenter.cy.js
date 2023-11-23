@@ -117,4 +117,19 @@ describe("Catalogo", () => {
     cy.get("#show_result").find("tr").eq(2).find("td").last().find('input[type="checkbox"]').should('not.be.checked');
   });
 
+  it("Se deberia crear una kata al llenar el formulario de crear kata con datos", () => {
+    cy.visit("/");
+    cy.get('#new_kata_title').type('Nueva');
+    cy.get('#new_kata_description').type('Esta es la nueva descripcion de la nueva prueba');
+    cy.get('#new_kata_difficulty').type('3');
+    cy.get('#new_kata_category').type('Categoría de prueba');
+    cy.get('#new_kata_url').type('http://ejemplo.com');
+    cy.get('#new_kata_author').type('Autor de prueba');
+    cy.get('#new_kata_creation_date').type('2023-01-01');
+    cy.get("#create_kata_button").click();
+
+    cy.get("#search_form").find("input").type("Nueva{Enter}");
+    cy.get("#show_result").find("td").eq(0).should("contain", "Nueva");
+    cy.get("#show_result").find("td").eq(1).should("contain", "Esta es la nueva descripcion de la nueva prueba");
+  });
 });
