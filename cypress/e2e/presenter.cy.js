@@ -75,7 +75,7 @@ describe("Catalogo", () => {
     cy.get("#show_result").find("td").eq(7).should("contain", "2016-05-08");
   });
 
-<<<<<<< HEAD
+
   it("Se deberia mostrar la kata mas recientemente creada al ordenar descendentemente", () =>{
     cy.visit("/");
     cy.get("#order_attribute").select("NombreAutorDescendente");
@@ -90,14 +90,10 @@ describe("Catalogo", () => {
     cy.get("#show_result").find("td").eq(6).should("contain", "Sofia");
   });
 
-
-
-=======
   it("Se deberia mostrar que se marca una kata como completada", () =>
   {
     cy.visit("/");
     cy.get('#show_result').find('tr').eq(2).find('td').last().find('input[type="checkbox"]').check();
-    cy.get("#show_result").find("tr").eq(2).find("td").last().find('input[type="checkbox"]').should('be.checked');
+  cy.get("#show_result").find("tr").eq(2).find("td").last().find('input[type="checkbox"]').should('be.checked');
   });
->>>>>>> f129c08 (Se obtiene el estado(resuelto o no) de una kata)
 });

@@ -180,13 +180,10 @@ it("deberia devolver 0 si ambos autores tienen el mismo nombre",() => {
   expect(catologo.compararAutores(kata1, kata2)).toBe(0);
 });
 
-<<<<<<< HEAD
-=======
   it("Deberia obtener estado(resuelto o no) de una kata", () => {
     let kata = new Kata(0, "Kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2000-07-01", false);
     expect(kata.obtenerEstadoResuelto()).toEqual(false);
   });
->>>>>>> f129c08 (Se obtiene el estado(resuelto o no) de una kata)
 
   it("Deberia verficar si la kata esta resuelta", () => {
     let kata = new Kata(0, "Kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2000-07-01", true);
