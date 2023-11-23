@@ -1,5 +1,5 @@
 export default class Kata{
-  constructor(id, titulo, descripcion, dificultad, categoria, urlSolucion, autor, fechaDeCreacion){
+  constructor(id, titulo, descripcion, dificultad, categoria, urlSolucion, autor, fechaDeCreacion, estadoResuelto){
     this.id = id;
     this.descripcion = descripcion;
     this.titulo = titulo;
@@ -8,6 +8,7 @@ export default class Kata{
     this.urlSolucion = urlSolucion;
     this.autor = autor;
     this.fechaDeCreacion = fechaDeCreacion;
+    this.estadoResuelto = estadoResuelto;
   }
 
   obtenerTitulo(){
@@ -36,6 +37,10 @@ export default class Kata{
   
   obtenerAutor() {
     return this.autor; 
+  }
+
+  obtenerEstadoResuelto(){
+    return this.estadoResuelto;
   }
 
   esTerminoVacio(termino) {

@@ -43,13 +43,13 @@ describe("Katas Individuales ", () => {
 
   it("Deberia obtener una lista de una kata por defecto", () => {
     let catalogo = Singleton.getInstance();
-    expect(catalogo.katas[0]).toEqual(new Kata(0,"FizzBuzz", "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.", 1, 'Fundamentos', "tengo solucion", "Joselito", "2020-01-15"));
+    expect(catalogo.katas[0]).toEqual(new Kata(0,"FizzBuzz", "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.", 1, 'Fundamentos', "tengo solucion", "Joselito", "2020-01-15", true));
   });
 
   it("Deberia obtener una lista de dos katas por defecto", () => {
     let catalogo = Singleton.getInstance();
-    expect(catalogo.katas[0]).toEqual(new Kata(0,"FizzBuzz", "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.", 1, 'Fundamentos', "tengo solucion", 'Joselito', "2020-01-15"), 
-                                      new Kata(1,"PrimeFactors", "Develop a function that computes and returns the prime factorization of a given number in the form of an array of numbers.", 3));
+    expect(catalogo.katas[0]).toEqual(new Kata(0,"FizzBuzz", "Write a function that takes a number as an argument and returns an array of numbers up to the given number, but replaces numbers divisible by 3 with 'Fizz', numbers divisible by 5 with 'Buzz', and numbers divisible by both 3 and 5 with 'FizzBuzz'.", 1, 'Fundamentos', "tengo solucion", 'Joselito', "2020-01-15", true), 
+                                      new Kata(1,"PrimeFactors", "Develop a function that computes and returns the prime factorization of a given number in the form of an array of numbers.", 3, false));
   });
 
   it("Deberia obtener el id de una kata", () => {
@@ -98,16 +98,17 @@ describe("Katas Individuales ", () => {
   });
 
   it("Deberia obtener la fecha de creacion de la kata", () => {
-
     let fechaDeCreacion = "2000-07-01";
     let kata = new Kata(0, "Kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2000-07-01");
     expect(kata.obtenerFechaCreacion()).toEqual(fechaDeCreacion);
   });
+
   it("Deberia devolver la lista de elementos de la fecha", () => {
-     let kata = new Kata(0, "Kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2000-07-01");
-     var elementos = kata.descomponerFecha()
-     expect(elementos).toEqual([2000, 7, 1]); 
+    let kata = new Kata(0, "Kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2000-07-01");
+    var elementos = kata.descomponerFecha()
+    expect(elementos).toEqual([2000, 7, 1]); 
   });
+
   it("Deberia comparar entre dos fechas y se devuelve false si la kata comparada es mayor",() => {
     let kataEjemplo = new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2000-07-01");
     let kataEjemplo_2 = new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2001-07-01");
@@ -179,6 +180,13 @@ it("deberia devolver 0 si ambos autores tienen el mismo nombre",() => {
   expect(catologo.compararAutores(kata1, kata2)).toBe(0);
 });
 
+<<<<<<< HEAD
+=======
+  it("Deberia obtener estado(resuelto o no) de una kata", () => {
+    let kata = new Kata(0, "Kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2000-07-01", false);
+    expect(kata.obtenerEstadoResuelto()).toEqual(false);
+  });
+>>>>>>> f129c08 (Se obtiene el estado(resuelto o no) de una kata)
 
 
 });
