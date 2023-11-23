@@ -39,7 +39,7 @@ export default class Catologo {
   }
 
   ordenarPorFechaDeCreacionDescendentemente(){
-    this.katas.sort((a,b) => this.compararFechas(a,b,-11));
+    this.katas.sort((a,b) => this.compararFechas(a,b,-1));
     return this.katas;
   }
 

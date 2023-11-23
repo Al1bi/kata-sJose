@@ -63,9 +63,16 @@ describe("Catalogo", () => {
 
   it("Se deberia mostrar la kata mas recientemente creada al ordenar descendentemente", () =>{
     cy.visit("/");
-    cy.get("#order_date_attribute").select("fecha creacion descendente");
-    cy,get("#creation_date_order_button").click();
-    cy.get("#show_result").find("td").eq(6).should("contain", "00-00-00");
+    cy.get("#order_attribute").select("fecha creacion descendente");
+    cy.get("#filter_button").click();
+    cy.get("#show_result").find("td").eq(7).should("contain", "2023-08-22");
+  });
+
+  it("Se deberia mostrar la kata mas antigua al ordenar ascendentemente", () =>{
+    cy.visit("/");
+    cy.get("#order_attribute").select("fecha creacion ascendente");
+    cy.get("#filter_button").click();
+    cy.get("#show_result").find("td").eq(7).should("contain", "2016-05-08");
   });
 
 });

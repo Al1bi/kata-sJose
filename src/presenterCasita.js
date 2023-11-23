@@ -17,6 +17,7 @@ window.onload = llenarCatologo();
 function llenarCatologo() { 
   let table = crearTable();
   let katas = catologo.obtenerListaKatasOrdTituloAsc();
+  console.log(katas);
   llenarTable(katas, table);
   agregarEscuchadoresBotonesLeer();
 }
@@ -26,7 +27,7 @@ function crearTable(){
   let table = document.createElement("table");
   let thead = document.createElement("thead");
   let headerRow = document.createElement("tr");
-  ["Título", "Descripción",  "Ver más", "Dificultad", "Categoria","Solucion Disponible", "Autor"].forEach(headerText => {
+  ["Título", "Descripción",  "Ver más", "Dificultad", "Categoria","Solucion Disponible", "Autor", "Fecha creacion"].forEach(headerText => {
       let th = document.createElement("th");
       th.textContent = headerText;
       headerRow.appendChild(th);
@@ -68,7 +69,11 @@ function llenarTable(katas, table){
     row.appendChild(solutionCell);
     let autorCell = document.createElement("td"); 
     autorCell.textContent = katas[kataIndex].obtenerAutor(); 
-    row.appendChild(autorCell)
+    row.appendChild(autorCell);
+    tbody.appendChild(row);
+    let creationDate = document.createElement("td"); 
+    creationDate.textContent = katas[kataIndex].obtenerFechaCreacion(); 
+    row.appendChild(creationDate);
     tbody.appendChild(row);
   }
   table.appendChild(tbody);
@@ -100,6 +105,11 @@ filterForm.addEventListener("submit", (event) => {
   const categoria = document.querySelector("#category_attribute").value;
   if(atributo === "DiffAsc") {
     katas = catologo.obtenerKatasOrdenadasPorDificultadAsc(); 
+  }else if(atributo === "CreacionDsc"){
+    katas = catologo.ordenarPorFechaDeCreacionDescendentemente();
+  }
+  else if(atributo === "CreacionAsc"){
+    katas = catologo.ordenarPorFechaDeCreacionAscendentemente();
   }
   if(categoria !== "") {
     katas = catologo.buscarKataPorCategoria(categoria); 

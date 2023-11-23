@@ -21,6 +21,8 @@ export default class CasitaView {
             <label for="Atributos">Ordenar por:</label>
             <select name="Atributos" id="order_attribute">
                 <option value="DiffAsc">Dificultad Asc</option>
+                <option value="CreacionAsc">fecha creacion ascendente</option>
+                <option value="CreacionDsc">fecha creacion descendente</option>
             </select>
             <br><br>
             <label for="Atributos">Categoria:</label>
