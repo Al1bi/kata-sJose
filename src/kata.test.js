@@ -188,6 +188,11 @@ it("deberia devolver 0 si ambos autores tienen el mismo nombre",() => {
   });
 >>>>>>> f129c08 (Se obtiene el estado(resuelto o no) de una kata)
 
+  it("Deberia verficar si la kata esta resuelta", () => {
+    let kata = new Kata(0, "Kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2000-07-01", true);
+    expect(kata.estaResuelta()).toEqual(true);
+  });
+
 
 });
 

@@ -43,6 +43,10 @@ export default class Kata{
     return this.estadoResuelto;
   }
 
+  estaResuelta(){
+    return this.estadoResuelto;
+  }
+
   esTerminoVacio(termino) {
     if(termino == "" || termino == undefined) return true;
     return false;
