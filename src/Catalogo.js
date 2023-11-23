@@ -33,6 +33,13 @@ export default class Catologo {
     }
     return 0;
   }
+  compararAutores(autor1, autor2){
+    let nombreAutor1 = autor1.obtenerAutor().toLowerCase();
+    let nombreAutor2 = autor2.obtenerAutor().toLowerCase();
+    if(nombreAutor1 < nombreAutor2){
+      return -1;
+    }
+  }
   ordenarPorFechaDeCreacionAscendentemente(){
     this.katas.sort((a,b) => this.compararFechas(a,b,1));
     return this.katas;

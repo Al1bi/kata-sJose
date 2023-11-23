@@ -177,6 +177,14 @@ it("Deberia ordenar la lista de katas descendentemente",() => {
   expect(ordenado[0].obtenerFechaCreacion()).toEqual(fechaResultado);
 });
 
+it("deberia devolver -1 si el autor de la kata 1 esta antes que el autor en la kata 2",() => {
+  let catologo = new Catologo(); 
+  let kata1 = new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2008-07-01"); 
+  let kata2 = new Kata(1, "kata2", "Kata de ejemplo2", 1, "Algoritmos", "miUrl2", "Von Linus", "2001-07-01"); 
+  expect(catologo.compararAutores(kata1, kata2)).toBe(-1);
+});
+
+
 
 
 

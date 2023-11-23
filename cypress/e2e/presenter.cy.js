@@ -74,4 +74,21 @@ describe("Catalogo", () => {
     cy.get("#filter_button").click();
     cy.get("#show_result").find("td").eq(7).should("contain", "2016-05-08");
   });
+
+  it("Se deberia mostrar la kata mas recientemente creada al ordenar descendentemente", () =>{
+    cy.visit("/");
+    cy.get("#order_attribute").select("autor descendente");
+    cy.get("#filter_button").click();
+    cy.get("#show_result").find("td").eq(7).should("contain", "name");
+  });
+
+  it("Se deberia mostrar la kata mas antigua al ordenar ascendentemente", () =>{
+    cy.visit("/");
+    cy.get("#order_attribute").select("autor ascendente");
+    cy.get("#filter_button").click();
+    cy.get("#show_result").find("td").eq(7).should("contain", "name");
+  });
+
+
+
 });
