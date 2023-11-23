@@ -43,4 +43,38 @@ describe("Ordenamiento de katas", () => {
 
     expect(catalogo.obtenerKatasOrdenadasPorDificultadAsc()).toEqual([new Kata(2, "Maquinolas", "", 1), new Kata(1, "Borisaurio", "", 2), new Kata(0, "Joselito", "", 3)]);
   });
+  it("Deberia ordenar la lista de katas ascendentemente",() => {
+    let fechaResultado = "2001-07-01";
+    let catologo = new Catologo(); 
+    catologo.agregarKata(new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2008-07-01")); 
+    catologo.agregarKata(new Kata(1, "kata2", "Kata de ejemplo2", 1, "Algoritmos", "miUrl2", "Von Linus", "2001-07-01")); 
+    var ordenado = catologo.ordenarPorFechaDeCreacionAscendentemente();
+    expect(ordenado[0].obtenerFechaCreacion()).toEqual(fechaResultado);
+  });
+  
+  it("Deberia ordenar la lista de katas descendentemente",() => {
+    let fechaResultado = "2008-07-01";
+    let catologo = new Catologo(); 
+    catologo.agregarKata(new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2008-07-01")); 
+    catologo.agregarKata(new Kata(1, "kata2", "Kata de ejemplo2", 1, "Algoritmos", "miUrl2", "Von Linus", "2001-07-01")); 
+    var ordenado = catologo.ordenarPorFechaDeCreacionDescendentemente();
+    expect(ordenado[0].obtenerFechaCreacion()).toEqual(fechaResultado);
+  });
+  it("Deberia ordenar la lista de katas por el autor Descendentemente",() => {
+    let nombreEsperado = "Albion";
+    let catologo = new Catologo(); 
+    catologo.agregarKata(new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Bonancio", "2008-07-01")); 
+    catologo.agregarKata(new Kata(1, "kata2", "Kata de ejemplo2", 1, "Algoritmos", "miUrl2", "Albion", "2001-07-01")); 
+    var ordenado = catologo.ordenarPorAutorDescendentemente();
+    expect(ordenado[0].obtenerAutor()).toEqual(nombreEsperado);
+  });
+  
+  it("Deberia ordenar la lista de katas por el autor Ascendentemente",() => {
+    let nombreEsperado = "Bonancio";
+    let catologo = new Catologo(); 
+    catologo.agregarKata(new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Bonancio", "2008-07-01")); 
+    catologo.agregarKata(new Kata(1, "kata2", "Kata de ejemplo2", 1, "Algoritmos", "miUrl2", "Albion", "2001-07-01")); 
+    var ordenado = catologo.ordenarPorAutorAscendentemente();
+    expect(ordenado[0].obtenerAutor()).toEqual(nombreEsperado);
+  });
 });

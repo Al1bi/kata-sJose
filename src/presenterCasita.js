@@ -103,12 +103,12 @@ filterForm.addEventListener("submit", (event) => {
   let table = crearTable(); 
   const atributo = document.querySelector("#order_attribute").value; 
   const categoria = document.querySelector("#category_attribute").value;
-  if(atributo === "DiffAsc") {
+  if(atributo === "DifficultadAscendente") {
     katas = catologo.obtenerKatasOrdenadasPorDificultadAsc(); 
-  }else if(atributo === "CreacionDsc"){
+  }else if(atributo === "CreacionDescendente"){
     katas = catologo.ordenarPorFechaDeCreacionDescendentemente();
   }
-  else if(atributo === "CreacionAsc"){
+  else if(atributo === "CreacionAscendente"){
     katas = catologo.ordenarPorFechaDeCreacionAscendentemente();
   }
   else if(atributo === "NombreAutorDescendente"){

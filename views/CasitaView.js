@@ -20,9 +20,9 @@ export default class CasitaView {
           <form id="filter_form">
             <label for="Atributos">Ordenar por:</label>
             <select name="Atributos" id="order_attribute">
-                <option value="DiffAsc">Dificultad Asc</option>
-                <option value="CreacionAsc">fecha creacion ascendente</option>
-                <option value="CreacionDsc">fecha creacion descendente</option>
+                <option value="DifficultadAscendente">Dificultad Ascendente</option>
+                <option value="CreacionAscendente">fecha creacion ascendente</option>
+                <option value="CreacionDescendente">fecha creacion descendente</option>
                 <option value="NombreAutorDescendente">Nombre de autor descendente</option>
                 <option value="NombreAutorAscendente">Nombre de autor ascendente</option>
             </select>

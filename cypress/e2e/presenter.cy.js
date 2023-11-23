@@ -25,7 +25,7 @@ describe("Catalogo", () => {
   it("Se deberia mostrar una kata con dificultad 1 al principio cuando se ordena el catalogo por dificultad ascendente", () =>
   {
     cy.visit("/");
-    cy.get("#order_attribute").select("Dificultad Asc");
+    cy.get("#order_attribute").select("Dificultad Ascendente");
     cy.get("#filter_button").click();
     cy.get("#show_result").find("td").eq(3).should("contain", "1");
   });

@@ -24,18 +24,18 @@ export default class Catologo {
     this.ordenarKatasPorUnAtributo(comparadorNombre);
   }
 
-  compararFechas(kata1, kata2, factorDeOrdenamiento){
+  compararFechas(kata1, kata2){
     if(kata1.compararFechaMayor(kata2)){
-      return 1*factorDeOrdenamiento;
+      return 1;
     }
     if(kata1.compararFechaMenor(kata2)){
-      return -1*factorDeOrdenamiento;
+      return -1;
     }
     return 0;
   }
-  compararAutores(autor1, autor2){
-    let nombreAutor1 = autor1.obtenerAutor().toLowerCase();
-    let nombreAutor2 = autor2.obtenerAutor().toLowerCase();
+  compararAutores(kata1, kata2){
+    let nombreAutor1 = kata1.obtenerAutor().toLowerCase();
+    let nombreAutor2 = kata2.obtenerAutor().toLowerCase();
     if(nombreAutor1 < nombreAutor2){
       return -1;
     }
@@ -45,12 +45,12 @@ export default class Catologo {
     return 0;
   }
   ordenarPorFechaDeCreacionAscendentemente(){
-    this.katas.sort((a,b) => this.compararFechas(a,b,1));
+    this.katas.sort((kata1,kata2) => this.compararFechas(kata1,kata2));
     return this.katas;
   }
 
   ordenarPorFechaDeCreacionDescendentemente(){
-    this.katas.sort((a,b) => this.compararFechas(a,b,-1));
+    this.katas.sort((kata1, kata2) => this.compararFechas(kata2,kata1));
     return this.katas;
   }
 
