@@ -24,17 +24,22 @@ export default class Catologo {
     this.ordenarKatasPorUnAtributo(comparadorNombre);
   }
 
-  compararFechas(kata1, kata2){
+  compararFechas(kata1, kata2, factorDeOrdenamiento){
     if(kata1.compararFechaMayor(kata2)){
-      return 1;
+      return 1*factorDeOrdenamiento;
     }
     if(kata1.compararFechaMenor(kata2)){
-      return -1;
+      return -1*factorDeOrdenamiento;
     }
     return 0;
   }
   ordenarPorFechaDeCreacionAscendentemente(){
-    this.katas.sort(this.compararFechas);
+    this.katas.sort((a,b) => this.compararFechas(a,b,1));
+    return this.katas;
+  }
+
+  ordenarPorFechaDeCreacionDescendentemente(){
+    this.katas.sort((a,b) => this.compararFechas(a,b,-11));
     return this.katas;
   }
 
