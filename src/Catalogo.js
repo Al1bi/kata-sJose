@@ -31,6 +31,7 @@ export default class Catologo {
     if(kata1.compararFechaMenor(kata2)){
       return -1;
     }
+    return 0;
   }
 
   obtenerListaKatasOrdTituloAsc(){

@@ -151,6 +151,14 @@ it("Debería comparar correctamente dos katas basándose en sus fechas de creaci
   catologo.agregarKata(kata2);
   expect(catologo.compararFechas(kata2, kata1)).toBe(-1); 
 });
+it("Debería comparar correctamente dos katas basándose en sus fechas de creación, se retorna 0 si la k2 es al mismo tiempo de k1", () => {
+  let catologo = new Catologo();
+  let kata1 = new Kata(1, "Kata1", "Desc1", 1, "Cat1", "url1", "Autor1", "2002-01-01");
+  let kata2 = new Kata(1, "Kata1", "Desc1", 1, "Cat1", "url1", "Autor1", "2002-01-01");
+  catologo.agregarKata(kata1);
+  catologo.agregarKata(kata2);
+  expect(catologo.compararFechas(kata1, kata2)).toBe(0); 
+});
 
 
 
