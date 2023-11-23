@@ -159,6 +159,14 @@ it("Debería comparar correctamente dos katas basándose en sus fechas de creaci
   catologo.agregarKata(kata2);
   expect(catologo.compararFechas(kata1, kata2)).toBe(0); 
 });
+it("Deberia ordenar la lista de katas ascendentemente",() => {
+  let fechaResultado = "2001-07-01";
+  let catologo = new Catologo(); 
+  catologo.agregarKata(new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2008-07-01")); 
+  catologo.agregarKata(new Kata(1, "kata2", "Kata de ejemplo2", 1, "Algoritmos", "miUrl2", "Von Linus", "2001-07-01")); 
+  var ordenado = catologo.ordenarPorFechaDeCreacionAscendentemente();
+  expect(ordenado[0].obtenerFechaCreacion()).toEqual(fechaResultado);
+});
 
 
 

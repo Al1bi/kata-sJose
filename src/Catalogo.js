@@ -33,6 +33,10 @@ export default class Catologo {
     }
     return 0;
   }
+  ordenarPorFechaDeCreacionAscendentemente(){
+    this.katas.sort(this.compararFechas);
+    return this.katas;
+  }
 
   obtenerListaKatasOrdTituloAsc(){
     this.ordenarKatasPorTituloAsc();
