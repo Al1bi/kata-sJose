@@ -38,8 +38,13 @@ export default class Kata{
     return this.autor; 
   }
 
+  esTerminoVacio(termino) {
+    if(termino == "" || termino == undefined) return true;
+    return false;
+  }
+
   tieneSolucion(){
-    if(this.urlSolucion == "" || this.urlSolucion == undefined) return false;
+    if(this.esTerminoVacio(this.urlSolucion)) return false;
     return true;
   }
   obtenerFechaCreacion(){
