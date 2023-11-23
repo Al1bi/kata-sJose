@@ -176,4 +176,16 @@ describe("Busqueda de Katas", () => {
     expect(catologo.buscarKatasNoResueltas()).toEqual([]);
   });
 
+  it("Deberia devolver una lista esperada de un catalogo de katas que no han sido resueltas", () => {
+    let catologoEsperado = new Catologo(); 
+    let catologo = new Catologo();
+    catologo.agregarKata(new Kata(0,"Kata", "Katita", 1, 'Fundamentos', 'url', 'Jose', "2000-07-01", true));
+    catologo.agregarKata(new Kata(1,"Nelian", "Katita", 1, 'Fundamentos', 'url', 'Dios', "2000-07-01", false));
+    catologo.agregarKata(new Kata(2,"Kata 3", "Katita", 1, 'Fundamentos', 'url', 'Jose', "2000-07-01", true));
+    catologo.agregarKata(new Kata(3,"Kata 4", "Katita", 1, 'Fundamentos', 'url', 'Dios', "2000-07-01", false));
+    catologoEsperado.agregarKata(new Kata(1,"Nelian", "Katita", 1, 'Fundamentos', 'url', 'Dios', "2000-07-01", false));
+    catologoEsperado.agregarKata(new Kata(3,"Kata 4", "Katita", 1, 'Fundamentos', 'url', 'Dios', "2000-07-01", false));
+    expect(catologo.buscarKatasNoResueltas()).toEqual(catologoEsperado.obtenerListaKatas());
+  });
+
 });

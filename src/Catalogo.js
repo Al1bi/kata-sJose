@@ -151,6 +151,12 @@ export default class Catologo {
   }
 
   buscarKatasNoResueltas(){
-    return [];
+    let katasNoResueltas = [];
+    this.obtenerListaKatas().forEach((kata) =>{
+      if(! kata.estaResuelta()){
+        katasNoResueltas.push(kata);
+      }
+    });
+    return katasNoResueltas;
   }
 }
