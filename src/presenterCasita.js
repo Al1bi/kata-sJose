@@ -112,22 +112,28 @@ serchAutorForm.addEventListener("submit", (event) => {
 filterForm.addEventListener("submit", (event) => {
   event.preventDefault();
   let table = crearTable(); 
+  
   const atributo = document.querySelector("#order_attribute").value; 
   const categoria = document.querySelector("#category_attribute").value;
-  if(atributo === "DifficultadAscendente") {
-    katas = catologo.obtenerKatasOrdenadasPorDificultadAsc(); 
-  }else if(atributo === "CreacionDescendente"){
-    katas = catologo.ordenarPorFechaDeCreacionDescendentemente();
+
+  switch(atributo){
+    case "DifficultadAscendente":
+      katas = catologo.obtenerKatasOrdenadasPorDificultadAsc(); 
+      break;
+    case "CreacionDescendente":
+      katas = catologo.ordenarPorFechaDeCreacionDescendentemente();
+      break;
+    case "CreacionAscendente":
+      katas = catologo.ordenarPorFechaDeCreacionAscendentemente();
+      break;
+    case "NombreAutorDescendente":
+      katas = catologo.ordenarPorAutorDescendentemente();
+      break;
+    case "NombreAutorAscendente":
+      katas = catologo.ordenarPorAutorAscendentemente();
+      break;
   }
-  else if(atributo === "CreacionAscendente"){
-    katas = catologo.ordenarPorFechaDeCreacionAscendentemente();
-  }
-  else if(atributo === "NombreAutorDescendente"){
-    katas = catologo.ordenarPorAutorDescendentemente();
-  }
-  else if(atributo === "NombreAutorAscendente"){
-    katas = catologo.ordenarPorAutorAscendentemente();
-  }
+
   if(categoria !== "") {
     katas = catologo.buscarKataPorCategoria(categoria); 
   }
