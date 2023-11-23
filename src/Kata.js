@@ -45,5 +45,9 @@ export default class Kata{
   otenerFechaCreacion(){
     return this.fechaDeCreacion;
   }
+  descomponerFecha(){
+    let partes = this.fechaDeCreacion.split('-').map(Number);
+    return partes;
+  }
 
 };
