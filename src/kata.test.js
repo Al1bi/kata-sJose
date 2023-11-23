@@ -97,5 +97,13 @@ describe("Katas Individuales ", () => {
     expect(kata.obtenerAutor()).toEqual("Almejandro");
   });
 
+  it("Deberia obtener la fecha de creacion de la kata", () => {
+
+    let fechaDeCreacion = "2000-07-01";
+    let kata = new Kata(0, "Kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2000-07-01");
+    expect(kata.otenerFechaCreacion()).toEqual(fechaDeCreacion);
+  });
+
+
 });
 

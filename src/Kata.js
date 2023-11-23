@@ -1,5 +1,5 @@
 export default class Kata{
-  constructor(id, titulo, descripcion, dificultad, categoria, urlSolucion, autor){
+  constructor(id, titulo, descripcion, dificultad, categoria, urlSolucion, autor, fechaDeCreacion){
     this.id = id;
     this.descripcion = descripcion;
     this.titulo = titulo;
@@ -7,6 +7,7 @@ export default class Kata{
     this.categoria = categoria;
     this.urlSolucion = urlSolucion;
     this.autor = autor;
+    this.fechaDeCreacion = fechaDeCreacion;
   }
 
   obtenerTitulo(){
@@ -40,6 +41,9 @@ export default class Kata{
   tieneSolucion(){
     if(this.urlSolucion == "" || this.urlSolucion == undefined) return false;
     return true;
+  }
+  otenerFechaCreacion(){
+    return this.fechaDeCreacion;
   }
 
 };

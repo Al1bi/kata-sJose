@@ -61,4 +61,11 @@ describe("Catalogo", () => {
     cy.get("#show_result").find("td").eq(6).should("contain", "Escorpinson");
   });
 
+  it("Se deberia mostrar la kata mas recientemente creada al ordenar descendentemente", () =>{
+    cy.visit("/");
+    cy.get("#order_date_attribute").select("fecha creacion descendente");
+    cy,get("#creation_date_order_button").click();
+    cy.get("#show_result").find("td").eq(6).should("contain", "00-00-00");
+  });
+
 });
