@@ -31,6 +31,10 @@ export default class Kata{
   obtenerUrlSolucion(){
     return this.urlSolucion;
   }
+  
+  obtenerAutor() {
+    return "Joselito"; 
+  }
 
   tieneSolucion(){
     if(this.urlSolucion == "" || this.urlSolucion == undefined) return false;

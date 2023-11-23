@@ -11,6 +11,11 @@ export default class CasitaView {
           <p>Buscar</p>
           <input type="text" value="" id="search_box" placeholder="Busca Algo"/>
         </form>
+        <form id="search_autor_form"> 
+          <p>Buscar por autor</p>
+          <input type="text" value="" id="search_autor_box" placeholder="Busca un autor"/>
+          <input type="submit" value="Buscar" id="autor_button">
+        </form>
         <div>
           <form id="filter_form">
             <label for="Atributos">Ordenar por:</label>

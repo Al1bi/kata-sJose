@@ -86,5 +86,10 @@ describe("Katas Individuales ", () => {
     expect(kata.tieneSolucion()).toEqual(false);
   });
 
+  it("Deberia obtener el autor de una kata", () => {
+    let kata = new Kata(0,"Katita", "Idk", 1, "Algoritmos", "soy url", 'Joselito'); 
+    expect(kata.obtenerAutor()).toEqual("Joselito");
+  });
+
 });
 

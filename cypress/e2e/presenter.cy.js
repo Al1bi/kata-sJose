@@ -53,4 +53,12 @@ describe("Catalogo", () => {
     cy.get("#show_result").find("td").eq(5).should("contain", "Si");
   });
 
+  it("Se deberia mostrar el resultado BinarySearchTree al momento de buscar por autor Escorpinson y dar click en buscar", () =>{
+    cy.visit("/");
+    cy.get("#search_autor_box").type("Escorpinson");
+    cy.get("#autor_button").click();
+    cy.get("#show_result").find("td").eq(0).should("contain", "BinarySearchTree");
+    cy.get("#show_result").find("td").eq(6).should("contain", "Escorpinson");
+  });
+
 });
