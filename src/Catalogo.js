@@ -39,6 +39,9 @@ export default class Catologo {
     if(nombreAutor1 < nombreAutor2){
       return -1;
     }
+    if(nombreAutor1 > nombreAutor2){
+      return 1;
+    }
   }
   ordenarPorFechaDeCreacionAscendentemente(){
     this.katas.sort((a,b) => this.compararFechas(a,b,1));
