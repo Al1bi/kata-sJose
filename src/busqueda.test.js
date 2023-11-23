@@ -169,4 +169,11 @@ describe("Busqueda de Katas", () => {
     expect(catologo.buscarKatasPorAutor("Israel")).toEqual(catologoEsperado.obtenerListaKatas());
   });
 
+  it("Deberia devolver una lista vacia de un catalogo de katas que no han sido resueltas", () => {
+    let catologo = new Catologo();
+    catologo.agregarKata(new Kata(0,"Nelian", "Katita", 1, 'Fundamentos', 'url', 'Jose', "2000-07-01", true));
+    catologo.agregarKata(new Kata(1,"Kata 2", "Katita", 1, 'Fundamentos', 'url', 'Dios', "2000-07-01", true));
+    expect(catologo.buscarKatasNoResueltas()).toEqual([]);
+  });
+
 });

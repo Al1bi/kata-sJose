@@ -109,4 +109,12 @@ describe("Catalogo", () => {
     cy.get("#fecha_creacion_detalle").should("contain", '2017-06-30'); 
     cy.get("#solucion_disponible_detalle").should("contain", "Si");
   });
+
+  it("Se deberia mostrar una kata que no ha sido resuelta", () =>
+  {
+    cy.visit("/");
+    cy.get("#filter_no_solved").click();
+    cy.get("#show_result").find("tr").eq(2).find("td").last().find('input[type="checkbox"]').should('no.be.checked');
+  });
+
 });

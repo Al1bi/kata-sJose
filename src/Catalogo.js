@@ -1,4 +1,3 @@
-import Kata from "./Kata";
 export default class Catologo {
 
   constructor() {
@@ -149,5 +148,9 @@ export default class Catologo {
       }
     });
     return coincidencias; 
+  }
+
+  buscarKatasNoResueltas(){
+    return [];
   }
 }
