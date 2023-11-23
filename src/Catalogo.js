@@ -102,6 +102,12 @@ export default class Catologo {
   }
   
   buscarKatasPorAutor(autorBuscado) {
-    return [new Kata(2,"Kata 2", "Katita", 2, 'Algoritmos', 'url', 'Joselito')];
+    let coincidencias = []; 
+    this.obtenerListaKatas().forEach((item) => {
+      if (item.obtenerAutor() === autorBuscado) {
+        coincidencias.push(item);
+      }
+    });
+    return coincidencias; 
   }
 }
