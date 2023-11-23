@@ -24,6 +24,12 @@ export default class Catologo {
     this.ordenarKatasPorUnAtributo(comparadorNombre);
   }
 
+  compararFechas(kata1, kata2){
+    if(kata1.compararFechaMayor(kata2)){
+      return 1;
+    }
+  }
+
   obtenerListaKatasOrdTituloAsc(){
     this.ordenarKatasPorTituloAsc();
     return this.katas;
