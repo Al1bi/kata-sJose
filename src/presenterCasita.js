@@ -61,7 +61,7 @@ function llenarTable(katas, table){
     let categoryCell = document.createElement("td"); 
     categoryCell.textContent = katas[kataIndex].obtenerCategoria(); 
     row.appendChild(categoryCell)
-    let solutionCell = document.createElement("td"); 
+let solutionCell = document.createElement("td"); 
     if(katas[kataIndex].tieneSolucion()) solutionCell.textContent = "Si";
     else solutionCell.textContent = "No";
     row.appendChild(solutionCell);
@@ -114,12 +114,11 @@ button_Solution.addEventListener("click", (event) =>{
 
 function agregarEscuchadoresBotonesLeer() {
   let buttons = document.querySelectorAll('[id^="detalle_button"]');
-  console.log(buttons);
   buttons.forEach(button => {
     button.addEventListener('click', function() {
       let index = this.id.replace('detalle_button', '');
-      window.location.href = "./detalleKata.html?indexKata="+index;
+      window.location.href = "/detalleKata?indexKata="+index;
     });
+    button.setAttribute('onclick', 'route()');
   });
-}
-
+} 
