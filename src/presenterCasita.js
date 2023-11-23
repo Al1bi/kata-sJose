@@ -2,6 +2,7 @@ import Catologo from "./Catalogo.js";
 import Singleton from "./Singleton.js";
 
 const searchForm = document.querySelector("#search_form");
+const serchAutorForm = document.querySelector("#search_autor_form"); 
 const filterForm = document.querySelector("#filter_form");
 const difficultyForm = document.querySelector("#difficulty_form");
 const div_result = document.querySelector("#show_result");
@@ -25,7 +26,7 @@ function crearTable(){
   let table = document.createElement("table");
   let thead = document.createElement("thead");
   let headerRow = document.createElement("tr");
-  ["Título", "Descripción",  "Ver más", "Dificultad", "Categoria","Solucion Disponible"].forEach(headerText => {
+  ["Título", "Descripción",  "Ver más", "Dificultad", "Categoria","Solucion Disponible", "Autor"].forEach(headerText => {
       let th = document.createElement("th");
       th.textContent = headerText;
       headerRow.appendChild(th);
@@ -61,10 +62,13 @@ function llenarTable(katas, table){
     let categoryCell = document.createElement("td"); 
     categoryCell.textContent = katas[kataIndex].obtenerCategoria(); 
     row.appendChild(categoryCell)
-let solutionCell = document.createElement("td"); 
+    let solutionCell = document.createElement("td"); 
     if(katas[kataIndex].tieneSolucion()) solutionCell.textContent = "Si";
     else solutionCell.textContent = "No";
     row.appendChild(solutionCell);
+    let autorCell = document.createElement("td"); 
+    autorCell.textContent = katas[kataIndex].obtenerAutor(); 
+    row.appendChild(autorCell)
     tbody.appendChild(row);
   }
   table.appendChild(tbody);
@@ -79,6 +83,15 @@ searchForm.addEventListener("submit", (event) => {
   llenarTable(katas, table);
   agregarEscuchadoresBotonesLeer();
 });
+
+serchAutorForm.addEventListener("submit", (event) => {
+  event.preventDefault();  
+  let table = crearTable(); 
+  const autorBuscado = document.querySelector("#search_autor_box").value;
+  let katas = catologo.buscarKatasPorAutor(autorBuscado); 
+  llenarTable(katas, table); 
+  agregarEscuchadoresBotonesLeer(); 
+}); 
 
 filterForm.addEventListener("submit", (event) => {
   event.preventDefault();
