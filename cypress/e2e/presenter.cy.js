@@ -74,5 +74,4 @@ describe("Catalogo", () => {
     cy.get("#filter_button").click();
     cy.get("#show_result").find("td").eq(7).should("contain", "2016-05-08");
   });
-
 });
