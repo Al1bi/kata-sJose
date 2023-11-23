@@ -50,7 +50,11 @@ export default class Kata{
     return partes;
   }
   compararFechaMayor(otraKata){
-    return new Date(this.fechaDeCreacion) > new Date(otraKata.obtenerFechaCreacion());
+    return new Date(this.descomponerFecha()) > new Date(otraKata.descomponerFecha());
+  }
+  compararFechaMenor(otraKata)
+  {
+    return new Date(this.descomponerFecha()) < new Date(otraKata.descomponerFecha());
   }
 
 };

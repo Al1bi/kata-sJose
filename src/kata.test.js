@@ -108,12 +108,35 @@ describe("Katas Individuales ", () => {
      var elementos = kata.descomponerFecha()
      expect(elementos).toEqual([2000, 7, 1]); 
   });
-  it("Deberia comparar entre dos fechas",() => {
+  it("Deberia comparar entre dos fechas y se devuelve false si la kata comparada es mayor",() => {
     let kataEjemplo = new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2000-07-01");
     let kataEjemplo_2 = new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2001-07-01");
     let resultadoComparacion = kataEjemplo.compararFechaMayor(kataEjemplo_2);
     expect(resultadoComparacion).toEqual(false);
   });
+
+  it("Deberia comparar entre dos fechas y se devuelve true si la kata comparada es menor",() => {
+    let kataEjemplo = new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2000-07-01");
+    let kataEjemplo_2 = new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2001-07-01");
+    let resultadoComparacion = kataEjemplo_2.compararFechaMayor(kataEjemplo);
+    expect(resultadoComparacion).toEqual(true);
+  });
+
+  it("Deberia comparar entre dos fechas y se devuelve true si la kata comparada es mayor",() => {
+    let kataEjemplo = new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2000-07-01");
+    let kataEjemplo_2 = new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2001-07-01");
+    let resultadoComparacion = kataEjemplo.compararFechaMenor(kataEjemplo_2);
+    expect(resultadoComparacion).toEqual(true);
+  });
+
+  it("Deberia comparar entre dos fechas y se devuelve false si la kata comparada es menor",() => {
+    let kataEjemplo = new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2000-07-01");
+    let kataEjemplo_2 = new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Linus", "2001-07-01");
+    let resultadoComparacion = kataEjemplo_2.compararFechaMenor(kataEjemplo);
+    expect(resultadoComparacion).toEqual(false);
+  });
+  
+
 
 
 });
