@@ -195,11 +195,14 @@ it("deberia devolver 0 si ambos autores tienen el mismo nombre",() => {
   let kata2 = new Kata(1, "kata2", "Kata de ejemplo2", 1, "Algoritmos", "miUrl2", "Linus", "2001-07-01"); 
   expect(catologo.compararAutores(kata1, kata2)).toBe(0);
 });
-
-
-
-
-
+it("Deberia ordenar la lista de katas por el auto Descendentemente",() => {
+  let nombreEsperado = "Albion";
+  let catologo = new Catologo(); 
+  catologo.agregarKata(new Kata(0, "kata", "Kata de ejemplo", 1, "Algoritmos", "miUrl", "Bonancio", "2008-07-01")); 
+  catologo.agregarKata(new Kata(1, "kata2", "Kata de ejemplo2", 1, "Algoritmos", "miUrl2", "Albion", "2001-07-01")); 
+  var ordenado = catologo.ordenarPorAutorDescendentemente();
+  expect(ordenado[0].obtenerAutor()).toEqual(nombreEsperado);
+});
 
 
 });

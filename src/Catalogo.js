@@ -54,6 +54,11 @@ export default class Catologo {
     return this.katas;
   }
 
+  ordenarPorAutorDescendentemente(){
+    this.katas.sort((kata1, kata2) => this.compararAutores(kata1, kata2));
+    return this.katas;
+  }
+
   obtenerListaKatasOrdTituloAsc(){
     this.ordenarKatasPorTituloAsc();
     return this.katas;
